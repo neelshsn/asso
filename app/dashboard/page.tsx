@@ -96,7 +96,9 @@ export default async function DashboardPage() {
             Impact operations overview
           </h1>
           <p className="text-ink/70 max-w-2xl">
-            Live stats about volunteers, associations, and matching health. No login required - simply monitor progress and trigger workflows when needed.
+            Live stats about volunteers, associations, and matching health. No
+            login required - simply monitor progress and trigger workflows when
+            needed.
           </p>
         </div>
 
@@ -122,8 +124,12 @@ export default async function DashboardPage() {
         <div className="border-orange/15 rounded-[32px] border bg-white/95 p-6 shadow-card">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="font-display text-2xl text-ink">Matching velocity</h2>
-              <p className="text-ink/60 text-sm">Scores across recent proposals</p>
+              <h2 className="font-display text-2xl text-ink">
+                Matching velocity
+              </h2>
+              <p className="text-ink/60 text-sm">
+                Scores across recent proposals
+              </p>
             </div>
             <DashboardActions />
           </div>
