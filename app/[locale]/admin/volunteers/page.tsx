@@ -1,10 +1,13 @@
 import { VolunteersTable, type VolunteerRow } from "@/components/AdminTables";
 import { prisma } from "@/lib/db";
+import type { Prisma, User, VolunteerProfile } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
-function toArray(value: unknown): string[] {
-  if (!Array.isArray(value)) return [];
+type VolunteerWithUser = VolunteerProfile & { user: User };
+
+function toArray(value: Prisma.JsonValue | null | undefined): string[] {
+  if (!value || !Array.isArray(value)) return [];
   return value
     .map((item) => (typeof item === "string" ? item : ""))
     .filter(Boolean);
@@ -16,7 +19,7 @@ export default async function VolunteersAdminPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  const rows: VolunteerRow[] = volunteers.map((vol) => ({
+  const rows: VolunteerRow[] = volunteers.map((vol: VolunteerWithUser) => ({
     id: vol.id,
     name:
       `${vol.user.firstName ?? ""} ${vol.user.lastName ?? ""}`.trim() ||
