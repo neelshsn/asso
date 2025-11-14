@@ -1,15 +1,21 @@
 ﻿import { MatchesBoard, type MatchRow } from "@/components/AdminTables";
 import { prisma } from "@/lib/db";
-import type { Prisma } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
-type MatchWithRelations = Prisma.MatchGetPayload<{
-  include: {
-    volunteer: { include: { user: true } };
-    opportunity: true;
+type MatchWithRelations = {
+  id: string;
+  status: string;
+  score: number;
+  opportunity: { title: string };
+  volunteer: {
+    user: {
+      firstName: string | null;
+      lastName: string | null;
+      email: string;
+    };
   };
-}>;
+};
 
 export default async function MatchesAdminPage() {
   const matches = await prisma.match.findMany({
@@ -20,15 +26,17 @@ export default async function MatchesAdminPage() {
     },
   });
 
-  const rows: MatchRow[] = matches.map((match: MatchWithRelations) => ({
-    id: match.id,
-    volunteer: match.volunteer.user.firstName
-      ? `${match.volunteer.user.firstName} ${match.volunteer.user.lastName ?? ""}`
-      : match.volunteer.user.email,
-    opportunity: match.opportunity.title,
-    status: match.status,
-    score: match.score,
-  }));
+  const rows: MatchRow[] = matches.map(
+    (match: MatchWithRelations): MatchRow => ({
+      id: match.id,
+      volunteer: match.volunteer.user.firstName
+        ? `${match.volunteer.user.firstName} ${match.volunteer.user.lastName ?? ""}`
+        : match.volunteer.user.email,
+      opportunity: match.opportunity.title,
+      status: match.status,
+      score: match.score,
+    }),
+  );
 
   return <MatchesBoard rows={rows} />;
 }
