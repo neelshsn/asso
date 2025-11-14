@@ -10,8 +10,7 @@
   "nav": {
     "volunteer": "Volontaire",
     "association": "Association",
-    "faq": "FAQ",
-    "admin": "Admin"
+    "faq": "FAQ"
   },
   "hero": {
     "eyebrow": "Missions humaines, prêtes maintenant",
@@ -231,38 +230,6 @@
     "matchNotified": "Propositions en attente renvoyées.",
     "matchAccepted": "Choix enregistré, merci !",
     "error": "Un problème est survenu. Réessayez."
-  },
-  "admin": {
-    "welcome": "Vue d’ensemble",
-    "runMatching": "Lancer le matching",
-    "resend": "Renvoyer les propositions",
-    "tabs": {
-      "overview": "Vue générale",
-      "volunteers": "Volontaires",
-      "associations": "Associations",
-      "opportunities": "Opportunités",
-      "matches": "Matchs",
-      "settings": "Paramètres"
-    },
-    "stats": {
-      "volunteers": "Volontaires",
-      "associations": "Associations",
-      "opportunities": "Opportunités",
-      "matches": "Matchs"
-    },
-    "flags": {
-      "approved": "Approuvé",
-      "pending": "En attente"
-    },
-    "settings": {
-      "threshold": "Score minimal",
-      "skillsWeight": "Poids compétences",
-      "causesWeight": "Poids causes",
-      "availabilityWeight": "Poids disponibilité",
-      "languageWeight": "Poids langue",
-      "modalityWeight": "Poids modalité",
-      "save": "Enregistrer"
-    }
   },
   "lang": {
     "en": "English",

@@ -10,8 +10,7 @@
   "nav": {
     "volunteer": "Volunteer",
     "association": "Association",
-    "faq": "FAQ",
-    "admin": "Admin"
+    "faq": "FAQ"
   },
   "hero": {
     "eyebrow": "Human missions, ready now",
@@ -231,38 +230,6 @@
     "matchNotified": "Pending proposals re-sent.",
     "matchAccepted": "Choice recorded, merci !",
     "error": "Something went wrong. Please try again."
-  },
-  "admin": {
-    "welcome": "Dashboard overview",
-    "runMatching": "Run matching now",
-    "resend": "Resend proposals",
-    "tabs": {
-      "overview": "Overview",
-      "volunteers": "Volunteers",
-      "associations": "Associations",
-      "opportunities": "Opportunities",
-      "matches": "Matches",
-      "settings": "Settings"
-    },
-    "stats": {
-      "volunteers": "Volunteers",
-      "associations": "Associations",
-      "opportunities": "Opportunities",
-      "matches": "Matches"
-    },
-    "flags": {
-      "approved": "Approved",
-      "pending": "Pending"
-    },
-    "settings": {
-      "threshold": "Minimum score",
-      "skillsWeight": "Skills weight",
-      "causesWeight": "Causes weight",
-      "availabilityWeight": "Availability weight",
-      "languageWeight": "Language weight",
-      "modalityWeight": "Modality weight",
-      "save": "Save settings"
-    }
   },
   "lang": {
     "en": "English",

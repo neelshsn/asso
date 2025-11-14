@@ -1,6 +1,6 @@
 # N'GO Match MVP
 
-Next.js 15 + React 19 MVP that orchestrates multilingual volunteer <> association matching with Tailwind, shadcn/ui, Prisma (PostgreSQL), NextAuth credentials auth, next-intl i18n, node-cron, and Nodemailer (Ethereal in dev).
+Next.js 15 + React 19 MVP that orchestrates multilingual volunteer <> association matching with Tailwind, shadcn/ui, Prisma (PostgreSQL), next-intl i18n, node-cron, and Nodemailer (Ethereal in dev) plus a public ops dashboard.
 
 ## Tech stack
 
@@ -8,7 +8,7 @@ Next.js 15 + React 19 MVP that orchestrates multilingual volunteer <> associatio
 - Tailwind CSS, shadcn/ui, lucide-react icons
 - next-intl for `/en|fr|es` routing + translations
 - Prisma ORM (PostgreSQL database, e.g. via Prisma Accelerate or a managed Postgres) with seed data
-- NextAuth credentials (admin only) + bcryptjs hashes
+- Public `/dashboard` to monitor stats + trigger matching without auth
 - Nodemailer transport (SMTP via `.env` or auto Ethereal)
 - node-cron daily widening job
 
@@ -22,7 +22,7 @@ pnpm prisma db seed
 pnpm dev
 ```
 
-Visit `http://localhost:3000/en` (or `/fr`, `/es`). Admin dashboard lives at `/en/admin` (login `/en/admin/login`). Default admin creds come from `.env` / seed (`admin@ngo.local` / `change-me`).
+Visit `http://localhost:3000/en` (or `/fr`, `/es`). The operations dashboard is available at `http://localhost:3000/dashboard` with the same stats and actions as the former admin area, but no login is required.
 
 ## Key scripts
 
@@ -37,17 +37,15 @@ Visit `http://localhost:3000/en` (or `/fr`, `/es`). Admin dashboard lives at `/e
 - Volunteer & Association forms with react-hook-form + zod validation, Google Form toggles, toast feedback, email confirmations, PostgreSQL persistence
 - Matching engine (`lib/match.ts`) with weighted scoring, synonym boost, threshold tuning, and cron-triggered widening
 - Nodemailer proposals + acceptance emails with magic links handled by `/match/confirm`
-- Admin dashboard (credentials auth) with stats overview, tables, settings form, manual matching reruns & notifications
+- Dashboard with stats overview, manual matching reruns & notifications (open access)
 - Full next-intl locale-aware routing + JSON copy in `locales/{en,fr,es}`
 
 ## Environment
 
-`.env.local` controls SMTP + admin creds + Google Form fallbacks (and the database connection):
+`.env.local` controls SMTP, Google Form fallbacks, and the database connection:
 
 ```
 DATABASE_URL="postgresql://user:password@host:5432/dbname"
-NEXTAUTH_SECRET=...
-NEXTAUTH_URL=http://localhost:3000
 SMTP_HOST=...
 SMTP_PORT=587
 SMTP_USER=...
@@ -55,8 +53,6 @@ SMTP_PASS=...
 PLATFORM_FROM="N'GO <noreply@ngo.local>"
 PLATFORM_CC="match@ngo.local"
 SITE_URL=http://localhost:3000
-ADMIN_EMAIL=admin@ngo.local
-ADMIN_PASSWORD=change-me
 GOOGLE_FORM_VOLUNTEER=
 GOOGLE_FORM_ASSOC=
 ```

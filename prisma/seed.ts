@@ -1,27 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import { AvailabilityType, Modality, Role } from "@/lib/enums";
-import bcrypt from "bcryptjs";
 import "dotenv/config";
 
 const prisma = new PrismaClient();
-
-async function seedAdmin() {
-  const email = process.env.ADMIN_EMAIL ?? "admin@ngo.local";
-  const password = process.env.ADMIN_PASSWORD ?? "change-me";
-  const passwordHash = await bcrypt.hash(password, 10);
-
-  await prisma.user.upsert({
-    where: { email },
-    update: { passwordHash, role: Role.ADMIN },
-    create: {
-      email,
-      role: Role.ADMIN,
-      passwordHash,
-      firstName: "Admin",
-      lastName: "N'GO",
-    },
-  });
-}
 
 async function seedVolunteers() {
   const volunteers = [
@@ -145,7 +126,6 @@ async function seedAssociations() {
 }
 
 async function main() {
-  await seedAdmin();
   await seedVolunteers();
   await seedAssociations();
 }

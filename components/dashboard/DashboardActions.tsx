@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -14,7 +14,7 @@ async function post(url: string, body?: Record<string, unknown>) {
   return res.json();
 }
 
-export function AdminActions() {
+export function DashboardActions() {
   const [pending, startTransition] = useTransition();
 
   return (

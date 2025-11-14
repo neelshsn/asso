@@ -1,5 +1,4 @@
 import "@/lib/cron";
-import { Providers } from "@/components/providers";
 import { SiteFooter } from "@/components/SiteFooter";
 import { locales, type Locale } from "@/lib/i18n/config";
 import { NextIntlClientProvider } from "next-intl";
@@ -37,12 +36,10 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
     >
       <body className="bg-cream text-ink antialiased">
         <NextIntlClientProvider locale={safeLocale} messages={messages}>
-          <Providers>
-            <div className="flex min-h-screen flex-col">
-              <main className="bg-cream flex-1">{children}</main>
-              <SiteFooter />
-            </div>
-          </Providers>
+          <div className="flex min-h-screen flex-col">
+            <main className="bg-cream flex-1">{children}</main>
+            <SiteFooter />
+          </div>
           <Toaster richColors position="top-right" duration={4000} />
         </NextIntlClientProvider>
       </body>
