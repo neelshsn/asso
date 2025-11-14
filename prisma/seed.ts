@@ -1,4 +1,5 @@
-﻿import { PrismaClient, Role, AvailabilityType, Modality } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
+import { AvailabilityType, Modality, Role } from "@/lib/enums";
 import bcrypt from "bcryptjs";
 import "dotenv/config";
 

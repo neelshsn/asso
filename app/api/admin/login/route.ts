@@ -1,5 +1,5 @@
-﻿import { prisma } from "@/lib/db";
-import { Role } from "@prisma/client";
+import { prisma } from "@/lib/db";
+import { Role } from "@/lib/enums";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 

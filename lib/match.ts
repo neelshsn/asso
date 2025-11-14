@@ -1,5 +1,5 @@
-﻿import { prisma } from "@/lib/db";
-import { MatchStatus, Modality, Prisma } from "@prisma/client";
+import { prisma } from "@/lib/db";
+import { MatchStatus, Modality } from "@/lib/enums";
 import { subDays } from "date-fns";
 import { sendMatchProposalEmail, sendAcceptedEmail } from "@/lib/mailer";
 import { hasSynonymMatch } from "@/lib/skill-synonyms";
@@ -44,9 +44,9 @@ export async function saveMatchSettings(settings: MatchSettings) {
   });
 }
 
-function toStringArray(value: Prisma.JsonValue | null | undefined): string[] {
+function toStringArray(value: unknown): string[] {
   if (!value || !Array.isArray(value)) return [];
-  return value
+  return (value as unknown[])
     .map((item) => (typeof item === "string" ? item : "").trim())
     .filter(Boolean);
 }
@@ -93,8 +93,8 @@ function languageScore(vol: string[], assoc: string[]) {
 }
 
 function modalityScore(
-  modality: Modality,
-  oppModality: Modality,
+  modality: (typeof Modality)[keyof typeof Modality],
+  oppModality: (typeof Modality)[keyof typeof Modality],
   remoteOk: boolean,
   relaxed: boolean,
 ) {

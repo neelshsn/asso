@@ -1,10 +1,12 @@
-﻿import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import type { NextAuthOptions, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { Role } from "@prisma/client";
+import { Role } from "@/lib/enums";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+
+type RoleValue = keyof typeof Role;
 
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
@@ -34,21 +36,21 @@ export const authOptions: NextAuthOptions = {
           id: user.id,
           email: user.email,
           name: `${user.firstName ?? "Admin"}`,
-          role: user.role,
-        } as User & { role: Role };
+          role: user.role as RoleValue,
+        } as User & { role: RoleValue };
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.role = (user as User & { role?: Role }).role ?? Role.ADMIN;
+        token.role = (user as User & { role?: RoleValue }).role ?? Role.ADMIN;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.role = (token.role as Role) ?? Role.VOLUNTEER;
+        session.user.role = (token.role as RoleValue) ?? Role.VOLUNTEER;
         session.user.id = token.sub ?? "";
       }
       return session;

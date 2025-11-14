@@ -1,6 +1,6 @@
-﻿import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import { sendConfirmationEmail } from "@/lib/mailer";
-import { Modality, Role } from "@prisma/client";
+import { Modality, Role } from "@/lib/enums";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -16,7 +16,7 @@ const schema = z.object({
   causes: z.array(z.string()).default([]),
   startDate: z.string().optional(),
   endDate: z.string().optional(),
-  modality: z.nativeEnum(Modality),
+  modality: z.enum([Modality.ONSITE, Modality.REMOTE, Modality.HYBRID]),
   country: z.string().min(2),
   city: z.string().min(2),
   urgency: z.number().min(0).max(10),

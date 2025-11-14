@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db";
-import { Role } from "@prisma/client";
+import { Role } from "@/lib/enums";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { encode } from "next-auth/jwt";
@@ -8,7 +8,7 @@ type AdminSummary = {
   id: string;
   email: string;
   firstName: string | null;
-  role: Role;
+  role: keyof typeof Role;
 };
 
 export async function POST() {
@@ -24,10 +24,10 @@ export async function POST() {
 
   if (process.env.DATABASE_URL) {
     try {
-      admin = await prisma.user.findFirst({
+      admin = (await prisma.user.findFirst({
         where: { role: Role.ADMIN },
         select: { id: true, email: true, firstName: true, role: true },
-      });
+      })) as AdminSummary | null;
     } catch (error) {
       console.warn("Demo login falling back to env admin:", error);
     }
