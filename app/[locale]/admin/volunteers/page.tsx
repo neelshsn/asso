@@ -1,10 +1,12 @@
 import { VolunteersTable, type VolunteerRow } from "@/components/AdminTables";
 import { prisma } from "@/lib/db";
-import type { Prisma, User, VolunteerProfile } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
-type VolunteerWithUser = VolunteerProfile & { user: User };
+type VolunteerWithUser = Prisma.VolunteerProfileGetPayload<{
+  include: { user: true };
+}>;
 
 function toArray(value: Prisma.JsonValue | null | undefined): string[] {
   if (!value || !Array.isArray(value)) return [];

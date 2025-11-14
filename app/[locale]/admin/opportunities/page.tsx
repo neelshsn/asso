@@ -3,13 +3,13 @@
   type OpportunityRow,
 } from "@/components/AdminTables";
 import { prisma } from "@/lib/db";
-import type { AssociationProfile, Opportunity } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
-type OpportunityWithAssociation = Opportunity & {
-  association: AssociationProfile;
-};
+type OpportunityWithAssociation = Prisma.OpportunityGetPayload<{
+  include: { association: true };
+}>;
 
 export default async function OpportunitiesAdminPage() {
   const opportunities = await prisma.opportunity.findMany({

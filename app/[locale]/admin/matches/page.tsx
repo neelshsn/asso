@@ -1,18 +1,15 @@
 ﻿import { MatchesBoard, type MatchRow } from "@/components/AdminTables";
 import { prisma } from "@/lib/db";
-import type {
-  Match,
-  Opportunity,
-  User,
-  VolunteerProfile,
-} from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
-type MatchWithRelations = Match & {
-  volunteer: VolunteerProfile & { user: User };
-  opportunity: Opportunity;
-};
+type MatchWithRelations = Prisma.MatchGetPayload<{
+  include: {
+    volunteer: { include: { user: true } };
+    opportunity: true;
+  };
+}>;
 
 export default async function MatchesAdminPage() {
   const matches = await prisma.match.findMany({

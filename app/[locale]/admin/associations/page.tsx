@@ -3,11 +3,13 @@
   type AssociationRow,
 } from "@/components/AdminTables";
 import { prisma } from "@/lib/db";
-import type { AssociationProfile, User } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
-type AssociationWithUser = AssociationProfile & { user: User };
+type AssociationWithUser = Prisma.AssociationProfileGetPayload<{
+  include: { user: true };
+}>;
 
 export default async function AssociationsAdminPage() {
   const associations = await prisma.associationProfile.findMany({
