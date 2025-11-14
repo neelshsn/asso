@@ -1,0 +1,133 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  VOLUNTEER
+  ASSOCIATION
+  ADMIN
+}
+
+enum MatchStatus {
+  PROPOSED
+  ACCEPTED
+  DECLINED
+  EXPIRED
+}
+
+enum AvailabilityType {
+  FULLTIME
+  PARTTIME
+  OCCASIONAL
+}
+
+enum Modality {
+  ONSITE
+  REMOTE
+  HYBRID
+}
+
+model User {
+  id           String   @id @default(cuid())
+  role         Role
+  email        String   @unique
+  passwordHash String?
+  firstName    String?
+  lastName     String?
+  languages    Json     @default("[]")
+  country      String?
+  city         String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  volunteer   VolunteerProfile?
+  association AssociationProfile?
+}
+
+model VolunteerProfile {
+  id                 String           @id @default(cuid())
+  userId             String           @unique
+  skills             Json             @default("[]")
+  causes             Json             @default("[]")
+  availability       AvailabilityType
+  availableFrom      DateTime?
+  availableTo        DateTime?
+  modality           Modality
+  preferredCountries Json             @default("[]")
+  remoteOk           Boolean          @default(false)
+  shareEmail         Boolean          @default(false)
+  approved           Boolean          @default(false)
+  lastProposalAt     DateTime?
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  user               User             @relation(fields: [userId], references: [id])
+  matches            Match[]
+}
+
+model AssociationProfile {
+  id            String        @id @default(cuid())
+  userId        String        @unique
+  orgName       String
+  website       String?
+  social        String?
+  legalStatus   String?
+  about         String?
+  shareEmail    Boolean       @default(false)
+  approved      Boolean       @default(false)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  user          User          @relation(fields: [userId], references: [id])
+  opportunities Opportunity[]
+}
+
+model Opportunity {
+  id             String             @id @default(cuid())
+  associationId  String
+  title          String
+  description    String
+  requiredSkills Json               @default("[]")
+  causes         Json               @default("[]")
+  startDate      DateTime?
+  endDate        DateTime?
+  modality       Modality
+  country        String?
+  city           String?
+  urgency        Int                @default(0)
+  active         Boolean            @default(true)
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  association    AssociationProfile @relation(fields: [associationId], references: [id])
+  matches        Match[]
+}
+
+model Match {
+  id                  String      @id @default(cuid())
+  volunteerId         String
+  opportunityId       String
+  score               Int
+  status              MatchStatus @default(PROPOSED)
+  volunteerToken      String      @default(cuid())
+  associationToken    String      @default(cuid())
+  volunteerAccepted   Boolean     @default(false)
+  associationAccepted Boolean     @default(false)
+  notifiedAt          DateTime?
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+
+  volunteer   VolunteerProfile @relation(fields: [volunteerId], references: [id])
+  opportunity Opportunity      @relation(fields: [opportunityId], references: [id])
+
+  @@index([volunteerId, opportunityId], name: "vol_opp_unique_dupe_guard")
+}
+
+model Setting {
+  key       String   @id
+  value     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

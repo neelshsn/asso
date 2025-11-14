@@ -1,0 +1,324 @@
+{
+  "site": {
+    "name": "N'GO Match",
+    "description": "Un cockpit bilingue qui relie des volontaires audacieux à des associations fiables en quelques clics.",
+    "volunteerValue": "Placer la bonne énergie au bon endroit.",
+    "associationValue": "Exprimer les besoins avec précision pour attirer les bons talents.",
+    "ctaVolunteer": "Parcours volontaire",
+    "ctaAssociation": "Parcours association"
+  },
+  "nav": {
+    "volunteer": "Volontaire",
+    "association": "Association",
+    "faq": "FAQ",
+    "admin": "Admin"
+  },
+  "hero": {
+    "eyebrow": "Missions humaines, prêtes maintenant",
+    "titleHighlight": "Diffusez la bonne énergie",
+    "titleRest": "exactement là où elle compte.",
+    "primaryCta": "Je veux être volontaire",
+    "secondaryCta": "Je représente une association",
+    "subtitleVolunteer": "Nous orchestrons bénévoles multilingues et ONG vérifiées depuis un tableau de bord vivant pour que chaque rencontre soit rapide, sûre et joyeuse.",
+    "subtitleAssociation": "Nous aidons les équipes terrain à clarifier leurs besoins, à révéler les bons profils et à garder chaque collaboration transparente dès le jour zéro."
+  },
+  "value": {
+    "title": "Ce qui change avec N'GO",
+    "cards": {
+      "volunteer": {
+        "title": "Pour les volontaires",
+        "description": "Nous transformons vos langues, compétences et causes en cartographie de missions.",
+        "items": [
+          "Curation intelligente — rôles, causes et mentors adaptés à votre rythme",
+          "Due diligence — légitimité, logistique et bien-être vérifiés avant départ",
+          "Suivi humain — coups de fil, binômes et débrief pour une expérience sereine"
+        ]
+      },
+      "association": {
+        "title": "Pour les associations",
+        "description": "Nous vous aidons à formuler l’appel et à accueillir les alliés pertinents.",
+        "items": [
+          "Briefs orientés impact avec objectifs, indicateurs et preuves terrain",
+          "Viviers approuvés actualisés en temps réel selon l’urgence",
+          "Matchroom — relancer, élargir le scope ou confirmer en un clic"
+        ]
+      }
+    }
+  },
+  "how": {
+    "title": "Comment ça marche",
+    "steps": [
+      {
+        "title": "Partager",
+        "description": "Volontaires et associations remplissent un profil riche en compétences, signaux de légitimité et attentes.",
+        "icon": "Share2"
+      },
+      {
+        "title": "Faire matcher",
+        "description": "Notre moteur pondéré combine compétences, causes, langues et timing pour proposer les 3 meilleures options.",
+        "icon": "Sparkles"
+      },
+      {
+        "title": "Connecter",
+        "description": "Chaque partie reçoit un email multilingue avec des liens magiques pour accepter, refuser ou élargir la recherche.",
+        "icon": "Link2"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Toutes les questions qu’on nous pose avant de se lancer",
+    "description": "Des réponses courtes et honnêtes, mises à jour chaque semaine avec la communauté.",
+    "items": [
+      {
+        "id": "what-is-volunteering",
+        "question": "C’est quoi le volontariat ?",
+        "answer": "Un engagement volontaire, encadré et limité dans le temps pour servir l’intérêt général, avec des attentes mutuelles explicites."
+      },
+      {
+        "id": "volunteering-vs-benevolat",
+        "question": "Différence volontariat / bénévolat ?",
+        "answer": "Le volontariat repose sur une mission cadrée et des responsabilités partagées ; le bénévolat reste informel, sans contrat ni exclusivité."
+      },
+      {
+        "id": "ngo-vs-association",
+        "question": "ONG ou association — quelle différence ?",
+        "answer": "Une ONG peut être un acteur national ou international (association, fondation, institution). Une association française est tout collectif à but non lucratif, avec ou sans intérêt général."
+      },
+      {
+        "id": "what-is-voluntourism",
+        "question": "Pourquoi se méfier du volontourisme ?",
+        "answer": "Parce qu’un impact ne doit pas devenir un souvenir. Nous privilégions les missions menées par les communautés, la protection et les preuves de besoin avant tout départ.",
+        "linkLabel": "En savoir plus",
+        "linkHref": "https://infodon.fr/volontourisme-derive-du-volontariat/"
+      },
+      {
+        "id": "find-associations",
+        "question": "Comment trouver des associations crédibles ?",
+        "answer": "Appuyez-vous sur des annuaires vérifiés, les réseaux locaux et nos propres contrôles de légitimité : nous appelons chaque projet avant publication."
+      },
+      {
+        "id": "legitimacy",
+        "question": "Comment vérifiez-vous la légitimité ?",
+        "answer": "Nous demandons preuves légales, références terrain, transparence financière et présence sociale avant toute mise en relation."
+      },
+      {
+        "id": "get-advice",
+        "question": "Quelqu’un peut-il m’aider à choisir ?",
+        "answer": "Oui. Réservez 20 minutes avec nos leads missions ; on vous guide sur visas, attentes et charge émotionnelle."
+      },
+      {
+        "id": "not-alone",
+        "question": "Je ne veux pas partir seul·e — un binôme possible ?",
+        "answer": "Activez le programme buddy : nous vous présentons des volontaires motivés partant aux mêmes dates."
+      },
+      {
+        "id": "prefer-donation",
+        "question": "Je préfère faire un don, est-ce possible ?",
+        "answer": "Bien sûr. Nous listons aussi des initiatives à financer quand partir n’est pas réaliste."
+      },
+      {
+        "id": "prefer-sponsorship",
+        "question": "Et si je préfère parrainer ou devenir ambassadeur ?",
+        "answer": "Nous proposons des rôles d’ambassade, de mentorat ou de sponsoring pour soutenir autrement."
+      },
+      {
+        "id": "country-constraints",
+        "question": "Quid des procédures pays / visas ?",
+        "answer": "Chaque fiche détaille les contraintes administratives, vaccins et assurances recommandées."
+      },
+      {
+        "id": "service-civique",
+        "question": "Le Service Civique compte-t-il comme volontariat ?",
+        "answer": "Oui, c’est une forme reconnue. Vous pouvez chercher des missions officielles ici.",
+        "linkLabel": "Plateforme officielle",
+        "linkHref": "https://www.service-civique.gouv.fr/trouver-ma-mission"
+      },
+      {
+        "id": "what-is-service-civique",
+        "question": "C’est quoi le Service Civique ?",
+        "answer": "Un engagement indemnisé de 6 à 12 mois pour l’intérêt général, destiné aux 16-25 ans (30 ans pour les personnes en situation de handicap)."
+      }
+    ]
+  },
+  "forms": {
+    "googleToggle": "Utiliser le Google Form à la place",
+    "recommendation": "Les formulaires N'GO restent recommandés pour qualifier votre demande plus vite.",
+    "volunteer": {
+      "title": "Profil volontaire",
+      "description": "Partagez vos compétences, causes et disponibilités pour débloquer des mises en relation ciblées.",
+      "success": "Profil volontaire envoyé",
+      "labels": {
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "Email",
+        "languages": "Langues parlées",
+        "country": "Pays",
+        "city": "Ville",
+        "skills": "Compétences",
+        "causes": "Causes",
+        "availability": "Disponibilités",
+        "availableFrom": "Disponible à partir du",
+        "availableTo": "Disponible jusqu’au",
+        "modality": "Modalité",
+        "preferredCountries": "Pays préférés",
+        "remoteOk": "Mission à distance possible",
+        "consent": "J’accepte de partager mon email lorsqu’un match est trouvé.",
+        "submit": "Partager mon profil"
+      }
+    },
+    "association": {
+      "title": "Brief association",
+      "description": "Expliquez votre mission, les compétences recherchées et les signaux de légitimité.",
+      "success": "Brief association envoyé",
+      "labels": {
+        "orgName": "Nom de l’organisation",
+        "email": "Email de contact",
+        "website": "Site web",
+        "social": "Lien social",
+        "legalStatus": "Statut légal",
+        "missionTitle": "Titre de la mission",
+        "description": "Description",
+        "requiredSkills": "Compétences requises",
+        "causes": "Causes",
+        "startDate": "Date de début",
+        "endDate": "Date de fin",
+        "modality": "Modalité",
+        "country": "Pays",
+        "city": "Ville",
+        "urgency": "Urgence",
+        "consent": "Je confirme que nous pouvons partager ce contact lorsqu’un match est prêt.",
+        "submit": "Envoyer l’opportunité"
+      }
+    },
+    "volunteerSteps": {
+      "identity": {
+        "title": "Qui êtes-vous ?",
+        "description": "Présentez-vous pour qu’on comprenne vos langues, origines et motivations."
+      },
+      "story": {
+        "title": "Compétences & causes",
+        "description": "Dites-nous ce qui vous tient à cœur et l’expertise que vous voulez activer."
+      },
+      "availability": {
+        "title": "Disponibilités & consentement",
+        "description": "Partagez vos dates, votre mobilité et la façon de vous contacter en toute sécurité."
+      }
+    },
+    "associationSteps": {
+      "identity": {
+        "title": "Qui est l’organisation ?",
+        "description": "Donnez les liens essentiels de légitimité et les personnes à contacter."
+      },
+      "mission": {
+        "title": "Brief mission",
+        "description": "Décrivez le projet, les activités clés et les compétences attendues."
+      },
+      "logistics": {
+        "title": "Logistique & urgence",
+        "description": "Précisez dates, modalités, lieu et niveau d’urgence pour prioriser les matchs."
+      }
+    }
+  },
+  "success": {
+    "title": "Merci !",
+    "subtitle": "Nous avons bien reçu vos informations et revenons vers vous rapidement.",
+    "cta": "Retour à l’accueil"
+  },
+  "notifications": {
+    "volunteerSaved": "Profil volontaire enregistré. Un email de confirmation vient de partir.",
+    "associationSaved": "Brief association enregistré. Surveillez votre boîte mail.",
+    "matchTriggered": "Lancement du matching effectué.",
+    "matchNotified": "Propositions en attente renvoyées.",
+    "matchAccepted": "Choix enregistré, merci !",
+    "error": "Un problème est survenu. Réessayez."
+  },
+  "admin": {
+    "welcome": "Vue d’ensemble",
+    "runMatching": "Lancer le matching",
+    "resend": "Renvoyer les propositions",
+    "tabs": {
+      "overview": "Vue générale",
+      "volunteers": "Volontaires",
+      "associations": "Associations",
+      "opportunities": "Opportunités",
+      "matches": "Matchs",
+      "settings": "Paramètres"
+    },
+    "stats": {
+      "volunteers": "Volontaires",
+      "associations": "Associations",
+      "opportunities": "Opportunités",
+      "matches": "Matchs"
+    },
+    "flags": {
+      "approved": "Approuvé",
+      "pending": "En attente"
+    },
+    "settings": {
+      "threshold": "Score minimal",
+      "skillsWeight": "Poids compétences",
+      "causesWeight": "Poids causes",
+      "availabilityWeight": "Poids disponibilité",
+      "languageWeight": "Poids langue",
+      "modalityWeight": "Poids modalité",
+      "save": "Enregistrer"
+    }
+  },
+  "lang": {
+    "en": "English",
+    "fr": "Français",
+    "es": "Español"
+  },
+  "footer": {
+    "text": "Copyright © N'GO. Tous droits réservés.",
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité",
+    "forms": "Google Forms",
+    "contact": "Besoin d’aide ?",
+    "phone": "+33 1 84 60 45 80"
+  },
+  "who": {
+    "title": "Qui sommes-nous en trois tableaux",
+    "sections": {
+      "volunteer": {
+        "eyebrow": "Volontaires",
+        "title": "Votre histoire amplifiée",
+        "body": "Nous vous coachons sur la préparation, l’administratif, la charge mentale et l’acculturation pour arriver confiant et entouré."
+      },
+      "association": {
+        "eyebrow": "Associations",
+        "title": "Vos besoins clarifiés",
+        "body": "Nous transformons les demandes floues en briefs affûtés, dossiers de preuve et accueils chaleureux pour vos équipes."
+      },
+      "goal": {
+        "eyebrow": "Notre vision",
+        "title": "Des ponts vivants",
+        "body": "N'GO Match est un pont vivant entre ceux qui veulent agir et ceux qui agissent déjà — avec la transparence comme réflexe."
+      }
+    }
+  },
+  "pulse": {
+    "title": "L’impulsion du moment",
+    "subtitle": "La plateforme vit 24/7 pour que les humains approuvés ne patientent jamais plus de quelques jours.",
+    "stats": [
+      {
+        "label": "Missions sélectionnées",
+        "value": "210+"
+      },
+      {
+        "label": "Volontaires approuvés",
+        "value": "1,2k"
+      },
+      {
+        "label": "Pays couverts",
+        "value": "27"
+      }
+    ],
+    "cta": "Parler à un lead mission"
+  },
+  "contactPanel": {
+    "title": "Prêt·e à lancer une mission ?",
+    "subtitle": "Partagez un brief, demandez une due diligence ou synchronisez-vous avec notre matchroom.",
+    "cta": "Planifier un appel"
+  }
+}

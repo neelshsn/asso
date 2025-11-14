@@ -1,0 +1,324 @@
+{
+  "site": {
+    "name": "N'GO Match",
+    "description": "A bilingual mission cockpit built to pair bold volunteers with trustworthy associations in a few decisive clicks.",
+    "volunteerValue": "Place the right heartbeat in the right mission.",
+    "associationValue": "Shape needs with precision so the right talent shows up.",
+    "ctaVolunteer": "Volunteer Journey",
+    "ctaAssociation": "Association Journey"
+  },
+  "nav": {
+    "volunteer": "Volunteer",
+    "association": "Association",
+    "faq": "FAQ",
+    "admin": "Admin"
+  },
+  "hero": {
+    "eyebrow": "Human missions, ready now",
+    "titleHighlight": "Send the right energy",
+    "titleRest": "exactly where it matters.",
+    "primaryCta": "I want to volunteer",
+    "secondaryCta": "I represent an association",
+    "subtitleVolunteer": "We choreograph multilingual volunteers and vetted NGOs inside one living dashboard so every match lands fast, safe, and joyful.",
+    "subtitleAssociation": "We help impact teams express needs clearly, surface trusted talent, and keep every collaboration transparent from day zero."
+  },
+  "value": {
+    "title": "What changes with N'GO",
+    "cards": {
+      "volunteer": {
+        "title": "For volunteers",
+        "description": "We turn your skills, languages, and causes into a tailored mission map.",
+        "items": [
+          "Smart curation — roles, causes, and mentors tuned to your momentum",
+          "Trusted due diligence — legitimacy, logistics, and wellbeing pre-checked",
+          "Human follow-up — prep calls, buddy systems, and post-mission care"
+        ]
+      },
+      "association": {
+        "title": "For associations",
+        "description": "We help you express the ask clearly and welcome the right allies.",
+        "items": [
+          "Story-first briefs with goals, impact indicators, and proof points",
+          "Real-time pool of approved volunteers filtered by urgency",
+          "Matchroom actions — resend, widen scope, or confirm in one click"
+        ]
+      }
+    }
+  },
+  "how": {
+    "title": "How it works",
+    "steps": [
+      {
+        "title": "Share",
+        "description": "Volunteers and associations submit rich profiles with skills, legitimacy signals, and expectations.",
+        "icon": "Share2"
+      },
+      {
+        "title": "Match",
+        "description": "Our weighted engine combines skills, causes, languages, and timing to propose the top 3 fits.",
+        "icon": "Sparkles"
+      },
+      {
+        "title": "Connect",
+        "description": "Both sides receive a single multilingual email with magic links to accept, decline, or widen scope.",
+        "icon": "Link2"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Everything people ask before jumping in",
+    "description": "Short, honest answers we revisit every week with the community.",
+    "items": [
+      {
+        "id": "what-is-volunteering",
+        "question": "What do you call volunteering?",
+        "answer": "A deliberate, time-bound commitment to serve the common good within a recognised structure, with mutual expectations spelled out."
+      },
+      {
+        "id": "volunteering-vs-benevolat",
+        "question": "Volunteering vs. benevolat?",
+        "answer": "Volunteering involves a framed mission and shared accountabilities; benevolat stays informal, with no exclusivity or contractual duty."
+      },
+      {
+        "id": "ngo-vs-association",
+        "question": "NGO or association — what is the difference?",
+        "answer": "NGOs can be national or international actors ranging from associations to foundations; a French association is any non-profit collective, with or without public-interest status."
+      },
+      {
+        "id": "what-is-voluntourism",
+        "question": "Why be cautious with voluntourism?",
+        "answer": "Because impact cannot be a souvenir. We prioritise community-led missions, safeguarding, and proof of need before any placement.",
+        "linkLabel": "Read more",
+        "linkHref": "https://infodon.fr/volontourisme-derive-du-volontariat/"
+      },
+      {
+        "id": "find-associations",
+        "question": "How do I find credible associations?",
+        "answer": "Lean on vetted directories, local networks, and our own legitimacy checks — we call every project before publishing it."
+      },
+      {
+        "id": "legitimacy",
+        "question": "How do you validate legitimacy?",
+        "answer": "We request legal proof, on-the-ground references, financial transparency, and social presence before any match goes live."
+      },
+      {
+        "id": "get-advice",
+        "question": "Can someone help me choose?",
+        "answer": "Yes. Book a 20-minute sparring session with our mission leads; we help you navigate visas, expectations, and the emotional load."
+      },
+      {
+        "id": "not-alone",
+        "question": "I don't want to go alone — can I find a buddy?",
+        "answer": "Opt into the buddy programme and we introduce you to equally motivated volunteers leaving at the same time."
+      },
+      {
+        "id": "prefer-donation",
+        "question": "What if I prefer donating?",
+        "answer": "We curate donation-ready projects and foundations; just let us know and we point you toward the right vehicle."
+      },
+      {
+        "id": "prefer-sponsorship",
+        "question": "Is ambassador or sponsorship work possible?",
+        "answer": "Absolutely. Select the ambassador track and we define storytelling, influence, and measurement frameworks together."
+      },
+      {
+        "id": "country-constraints",
+        "question": "What about visas and procedures?",
+        "answer": "Each mission pack lists visas, timelines, insurance, and travel notes; we update them weekly with partners on the ground."
+      },
+      {
+        "id": "service-civique-available",
+        "question": "Do you cover Service Civique?",
+        "answer": "When a mission fits the Service Civique framework we highlight it and redirect you to the official platform.",
+        "linkLabel": "Find a mission",
+        "linkHref": "https://www.service-civique.gouv.fr/trouver-ma-mission"
+      },
+      {
+        "id": "what-is-service-civique",
+        "question": "What is Service Civique?",
+        "answer": "A French public programme for 16-25 year olds (30 for participants with disabilities) offering paid missions that serve the public interest."
+      }
+    ]
+  },
+  "forms": {
+    "googleToggle": "Use Google Form instead",
+    "recommendation": "On-site forms are still recommended so we can pre-qualify you faster.",
+    "volunteer": {
+      "title": "Volunteer profile",
+      "description": "Share your skills, causes, and availability to unlock curated matches.",
+      "success": "Volunteer profile submitted",
+      "labels": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "languages": "Languages",
+        "country": "Country",
+        "city": "City",
+        "skills": "Skills",
+        "causes": "Causes",
+        "availability": "Availability",
+        "availableFrom": "Available from",
+        "availableTo": "Available to",
+        "modality": "Modality",
+        "preferredCountries": "Preferred countries",
+        "remoteOk": "Remote is ok",
+        "consent": "I consent to share my email when a match is found.",
+        "submit": "Share my profile"
+      }
+    },
+    "association": {
+      "title": "Association brief",
+      "description": "Explain your mission type, required skills, and legitimacy signals.",
+      "success": "Association brief submitted",
+      "labels": {
+        "orgName": "Organization name",
+        "email": "Contact email",
+        "website": "Website",
+        "social": "Social link",
+        "legalStatus": "Legal status",
+        "missionTitle": "Mission title",
+        "description": "Description",
+        "requiredSkills": "Required skills",
+        "causes": "Causes",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "modality": "Modality",
+        "country": "Country",
+        "city": "City",
+        "urgency": "Urgency",
+        "consent": "I confirm we can share this contact when a match is ready.",
+        "submit": "Submit opportunity"
+      }
+    },
+    "volunteerSteps": {
+      "identity": {
+        "title": "Who are you?",
+        "description": "Introduce yourself so we can understand your languages, origins, and motivations."
+      },
+      "story": {
+        "title": "Skills & causes",
+        "description": "Tell us what you care about and the expertise you want to mobilise."
+      },
+      "availability": {
+        "title": "Availability & consent",
+        "description": "Share timing, mobility, and how we can safely contact you."
+      }
+    },
+    "associationSteps": {
+      "identity": {
+        "title": "Who is the organisation?",
+        "description": "Give us the essential legitimacy links and the humans we should talk to."
+      },
+      "mission": {
+        "title": "Mission brief",
+        "description": "Describe the project, the key activities, and the skills you expect."
+      },
+      "logistics": {
+        "title": "Logistics & urgency",
+        "description": "Clarify dates, modality, location, and urgency so we can prioritise matches."
+      }
+    }
+  },
+  "success": {
+    "title": "Thank you!",
+    "subtitle": "We received your information and will be in touch shortly.",
+    "cta": "Back to home"
+  },
+  "notifications": {
+    "volunteerSaved": "Volunteer profile saved. We emailed you a confirmation.",
+    "associationSaved": "Association brief saved. Watch your inbox for confirmation.",
+    "matchTriggered": "Matching run started.",
+    "matchNotified": "Pending proposals re-sent.",
+    "matchAccepted": "Choice recorded, merci !",
+    "error": "Something went wrong. Please try again."
+  },
+  "admin": {
+    "welcome": "Dashboard overview",
+    "runMatching": "Run matching now",
+    "resend": "Resend proposals",
+    "tabs": {
+      "overview": "Overview",
+      "volunteers": "Volunteers",
+      "associations": "Associations",
+      "opportunities": "Opportunities",
+      "matches": "Matches",
+      "settings": "Settings"
+    },
+    "stats": {
+      "volunteers": "Volunteers",
+      "associations": "Associations",
+      "opportunities": "Opportunities",
+      "matches": "Matches"
+    },
+    "flags": {
+      "approved": "Approved",
+      "pending": "Pending"
+    },
+    "settings": {
+      "threshold": "Minimum score",
+      "skillsWeight": "Skills weight",
+      "causesWeight": "Causes weight",
+      "availabilityWeight": "Availability weight",
+      "languageWeight": "Language weight",
+      "modalityWeight": "Modality weight",
+      "save": "Save settings"
+    }
+  },
+  "lang": {
+    "en": "English",
+    "fr": "Fran�ais",
+    "es": "Espa�ol"
+  },
+  "footer": {
+    "text": "Copyright � N'GO. All rights reserved.",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "forms": "Google Forms",
+    "contact": "Need help?",
+    "phone": "+33 1 84 60 45 80"
+  },
+  "who": {
+    "title": "Who we are in three frames",
+    "sections": {
+      "volunteer": {
+        "eyebrow": "Volunteers",
+        "title": "Your story, amplified",
+        "body": "We coach you through readiness, paperwork, mental load, and culture so you arrive confident and supported."
+      },
+      "association": {
+        "eyebrow": "Associations",
+        "title": "Your needs, crystal clear",
+        "body": "We transform fuzzy requests into sharp briefs, proof packs, and welcoming onboarding flows your teams can trust."
+      },
+      "goal": {
+        "eyebrow": "Our vision",
+        "title": "Bridges with heartbeat",
+        "body": "N'GO Match is a living bridge between people who care and people who act — with transparency as our default mode."
+      }
+    }
+  },
+  "pulse": {
+    "title": "Momentum right now",
+    "subtitle": "The platform is alive 24/7 so vetted humans never wait more than a few days for a meaningful match.",
+    "stats": [
+      {
+        "label": "Missions curated",
+        "value": "210+"
+      },
+      {
+        "label": "Volunteers approved",
+        "value": "1.2k"
+      },
+      {
+        "label": "Countries covered",
+        "value": "27"
+      }
+    ],
+    "cta": "Talk to a mission lead"
+  },
+  "contactPanel": {
+    "title": "Ready to launch a mission?",
+    "subtitle": "Share a brief, ask for due diligence, or simply sync with our matchroom team.",
+    "cta": "Schedule a call"
+  }
+}

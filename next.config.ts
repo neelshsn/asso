@@ -1,7 +1,13 @@
+import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 
+const withNextIntl = createNextIntlPlugin("./i18n.ts");
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ["lucide-react", "recharts"],
+  },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
