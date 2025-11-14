@@ -29,7 +29,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative isolate flex h-[100dvh] min-h-[720px] w-full flex-col overflow-hidden bg-black text-white">
+    <section className="relative isolate flex min-h-[100dvh] w-full flex-col overflow-hidden bg-black text-white md:h-[100dvh] md:min-h-[720px]">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80 via-black/0 to-transparent" />
       <div className="flex flex-1 flex-col md:flex-row">
         {panels.map((panel) => {
