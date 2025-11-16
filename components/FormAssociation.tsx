@@ -428,7 +428,7 @@ const textAreaClasses =
 const selectTriggerClasses =
   "h-12 rounded-2xl border border-ink/15 bg-cream/70 px-4 text-base focus:ring-0 focus:outline-none";
 const panelClasses =
-  "w-full max-w-xl space-y-8 rounded-[32px] border border-ink/5 bg-white/95 p-5 shadow-[0_30px_120px_rgba(15,23,42,0.08)] backdrop-blur md:border-none md:bg-transparent md:p-0 md:shadow-none";
+  "w-full max-w-xl space-y-8 rounded-[32px] border border-ink/5 bg-white/95 p-5 shadow-[0_30px_120px_rgba(0,0,0,0.08)] backdrop-blur md:border-none md:bg-transparent md:p-0 md:shadow-none";
 
 export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
   const t = useTranslations("forms");
@@ -688,7 +688,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
               className={textAreaClasses}
             />
             {questionErrors[question.id] ? (
-              <p className="text-xs text-red-500">
+              <p className="text-xs text-orange">
                 {questionErrors[question.id]}
               </p>
             ) : null}
@@ -707,9 +707,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
             className={fieldClasses}
           />
           {questionErrors[question.id] ? (
-            <p className="text-xs text-red-500">
-              {questionErrors[question.id]}
-            </p>
+            <p className="text-xs text-orange">{questionErrors[question.id]}</p>
           ) : null}
         </>
       );
@@ -751,16 +749,14 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                 className={fieldClasses}
               />
               {questionErrors[`${question.id}__other`] ? (
-                <p className="text-xs text-red-500">
+                <p className="text-xs text-orange">
                   {questionErrors[`${question.id}__other`]}
                 </p>
               ) : null}
             </div>
           ) : null}
           {questionErrors[question.id] ? (
-            <p className="text-xs text-red-500">
-              {questionErrors[question.id]}
-            </p>
+            <p className="text-xs text-orange">{questionErrors[question.id]}</p>
           ) : null}
         </>
       );
@@ -801,14 +797,14 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
               className={fieldClasses}
             />
             {questionErrors[`${question.id}__other`] ? (
-              <p className="text-xs text-red-500">
+              <p className="text-xs text-orange">
                 {questionErrors[`${question.id}__other`]}
               </p>
             ) : null}
           </div>
         ) : null}
         {questionErrors[question.id] ? (
-          <p className="text-xs text-red-500">{questionErrors[question.id]}</p>
+          <p className="text-xs text-orange">{questionErrors[question.id]}</p>
         ) : null}
       </>
     );
@@ -850,7 +846,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
   };
 
   return (
-    <section className="from-cream via-beige/70 relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b to-white md:flex-row">
+    <section className="via-beige/70 relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b from-cream to-white md:flex-row">
       <div className="relative h-[45vh] w-full overflow-hidden md:h-auto md:w-1/2">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -986,7 +982,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                     })}
                   </div>
                   {categoryError ? (
-                    <p className="text-sm text-red-500">{categoryError}</p>
+                    <p className="text-sm text-orange">{categoryError}</p>
                   ) : null}
                 </div>
               ) : null}

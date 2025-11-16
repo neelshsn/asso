@@ -13,6 +13,7 @@ module.exports = {
         salmon: "var(--color-salmon)",
         turquoise: "var(--color-turquoise)",
         beige: "var(--color-beige)",
+        cream: "var(--color-beige)",
         ink: "var(--color-ink)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -60,7 +61,7 @@ module.exports = {
         display: ["var(--font-pally)", "var(--font-satoshi)", "sans-serif"],
       },
       boxShadow: {
-        card: "0 25px 80px -30px rgba(255, 79, 15, 0.25)",
+        card: "0 25px 80px -30px rgba(247, 44, 91, 0.25)",
       },
       borderRadius: {
         xl: "1.25rem",

@@ -22,7 +22,7 @@ export function MobileDock() {
 
   return (
     <nav aria-label={t("mobileMenu")} className="md:hidden">
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/50 bg-white/95 shadow-[0_-12px_45px_rgba(15,23,42,0.18)] backdrop-blur">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/50 bg-white/95 shadow-[0_-12px_45px_rgba(0,0,0,0.18)] backdrop-blur">
         <div className="flex w-full items-center justify-between px-2 py-2 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
           {navItems.map((item) => {
             const targetPath = item.href === "/" ? "/" : item.href;

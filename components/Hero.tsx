@@ -88,7 +88,7 @@ export function Hero() {
                     <Button
                       asChild
                       size="lg"
-                      className="rounded-full border border-white/20 bg-orange px-10 text-base font-semibold uppercase tracking-wide text-white shadow-[0_20px_60px_rgba(255,79,15,0.35)] transition hover:scale-105 hover:bg-turquoise"
+                      className="rounded-full border border-white/20 bg-orange px-10 text-base font-semibold uppercase tracking-wide text-white shadow-[0_20px_60px_rgba(247,44,91,0.35)] transition hover:scale-105 hover:bg-turquoise"
                     >
                       <Link href={panel.href}>
                         {isAssociation ? t("secondaryCta") : t("primaryCta")}

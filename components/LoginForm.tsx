@@ -57,16 +57,16 @@ export function LoginForm() {
   };
 
   return (
-    <section className="from-cream via-beige/80 relative isolate flex min-h-[100dvh] w-full items-center justify-center overflow-hidden bg-gradient-to-b to-white px-4 py-16">
+    <section className="via-beige/80 relative isolate flex min-h-[100dvh] w-full items-center justify-center overflow-hidden bg-gradient-to-b from-cream to-white px-4 py-16">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         aria-hidden
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(255,126,95,0.5), transparent 55%), radial-gradient(circle at 80% 0%, rgba(24,196,187,0.35), transparent 45%)",
+            "radial-gradient(circle at 20% 20%, rgba(247,44,91,0.4), transparent 55%), radial-gradient(circle at 80% 0%, rgba(167,212,119,0.35), transparent 45%)",
         }}
       />
-      <div className="relative z-10 w-full max-w-md rounded-[36px] border border-white/60 bg-white/90 p-8 shadow-[0_40px_120px_rgba(15,23,42,0.18)] backdrop-blur">
+      <div className="relative z-10 w-full max-w-md rounded-[36px] border border-white/60 bg-white/90 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur">
         <div className="flex items-center gap-3">
           <span className="bg-orange/15 flex h-12 w-12 items-center justify-center rounded-2xl text-orange">
             <LockKeyhole className="h-6 w-6" />

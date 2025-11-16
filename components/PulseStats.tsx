@@ -26,7 +26,7 @@ export async function PulseStats() {
   return (
     <section className="border-orange/10 mx-auto w-full max-w-6xl space-y-10 rounded-[36px] border bg-white/95 p-8 shadow-card backdrop-blur">
       <article className="flex flex-col gap-8 md:flex-row md:items-center">
-        <div className="bg-cream relative mx-auto w-full max-w-sm overflow-hidden rounded-[32px] shadow-lg md:max-w-[320px]">
+        <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[32px] bg-cream shadow-lg md:max-w-[320px]">
           <Image
             src="/images/jeanne.jpg"
             alt={t("imageAlt")}

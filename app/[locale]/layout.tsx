@@ -38,7 +38,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
       <body className="bg-cream text-ink antialiased">
         <NextIntlClientProvider locale={safeLocale} messages={messages}>
           <div className="flex min-h-screen flex-col">
-            <main className="bg-cream flex-1 pb-28 md:pb-0">{children}</main>
+            <main className="flex-1 bg-cream pb-28 md:pb-0">{children}</main>
             <SiteFooter />
           </div>
           <MobileDock />

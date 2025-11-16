@@ -18,8 +18,8 @@ export default async function SuccessPage() {
   ];
 
   return (
-    <section className="from-cream bg-gradient-to-b to-white py-16">
-      <div className="mx-auto flex max-w-4xl flex-col gap-8 rounded-[32px] bg-white/90 p-10 text-center shadow-[0_30px_120px_rgba(15,23,42,0.08)]">
+    <section className="bg-gradient-to-b from-cream to-white py-16">
+      <div className="mx-auto flex max-w-4xl flex-col gap-8 rounded-[32px] bg-white/90 p-10 text-center shadow-[0_30px_120px_rgba(0,0,0,0.08)]">
         <div className="space-y-3">
           <p className="text-xs uppercase tracking-[0.35em] text-turquoise">
             {t("eyebrow")}
@@ -42,7 +42,10 @@ export default async function SuccessPage() {
         </div>
         <p className="text-ink/60 text-sm">{t("reminder")}</p>
         <div>
-          <Button asChild className="bg-teal hover:bg-pink rounded-full px-8">
+          <Button
+            asChild
+            className="rounded-full bg-orange px-8 text-white hover:bg-salmon"
+          >
             <Link href="/">{t("cta")}</Link>
           </Button>
         </div>

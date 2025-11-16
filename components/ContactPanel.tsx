@@ -9,7 +9,7 @@ export async function ContactPanel() {
   return (
     <section
       id="contact"
-      className="border-orange/20 from-orange/20 via-salmon/10 to-beige/40 mx-auto w-full max-w-6xl overflow-hidden rounded-[48px] border bg-gradient-to-br p-10 text-ink shadow-[0_30px_80px_rgba(255,79,15,0.25)]"
+      className="border-orange/20 from-orange/20 via-salmon/10 to-beige/40 mx-auto w-full max-w-6xl overflow-hidden rounded-[48px] border bg-gradient-to-br p-10 text-ink shadow-[0_30px_80px_rgba(247,44,91,0.25)]"
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
