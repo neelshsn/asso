@@ -8,9 +8,12 @@
     "ctaAssociation": "Recorrido asociación"
   },
   "nav": {
+    "home": "Inicio",
     "volunteer": "Voluntariado",
     "association": "Asociación",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "login": "Acceso",
+    "mobileMenu": "Navegación principal"
   },
   "hero": {
     "eyebrow": "Misiones humanas, listas ya",
@@ -188,6 +191,24 @@
         "consent": "Autorizo compartir este contacto cuando haya un match.",
         "submit": "Enviar oportunidad"
       }
+    },
+    "login": {
+      "title": "Acceso seguro",
+      "description": "Inicia sesión en el cockpit N'GO",
+      "subtitle": "Solo para coordinadores aprobados.",
+      "success": "Acceso confirmado. Redirigiendo...",
+      "notice": "Acceso reservado al equipo N'GO Match. ¿Necesitas credenciales? hello@ngo-match.org.",
+      "labels": {
+        "email": "Email profesional",
+        "password": "Contraseña",
+        "remember": "Recordarme",
+        "forgot": "¿Olvidaste tu contraseña?",
+        "submit": "Iniciar sesión"
+      }
+    },
+    "actions": {
+      "back": "Volver",
+      "next": "Siguiente paso"
     },
     "volunteerSteps": {
       "identity": {

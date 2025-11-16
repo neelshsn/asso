@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useMemo, useState, useTransition, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,10 +23,23 @@ import type { LucideIcon } from "lucide-react";
 import {
   Accessibility,
   Baby,
+  BadgeCheck,
+  Building2,
+  CalendarClock,
+  CalendarDays,
+  FileText,
+  Gauge,
+  Globe,
   GraduationCap,
   HandHelping,
   HeartHandshake,
+  Link2,
+  ListChecks,
+  Mail,
+  MapPin,
+  MapPinned,
   PawPrint,
+  Sparkles,
   Stethoscope,
   Tent,
   Trees,
@@ -345,6 +358,73 @@ const associationImages = [
   "/images/form-06.jpg",
 ];
 
+const identityFieldIcons: Partial<Record<FieldName, LucideIcon>> = {
+  orgName: Building2,
+  email: Mail,
+  website: Globe,
+  social: Link2,
+  legalStatus: BadgeCheck,
+  country: Globe,
+  city: MapPin,
+  modality: MapPinned,
+  urgency: Gauge,
+  startDate: CalendarDays,
+  endDate: CalendarClock,
+};
+
+const questionTypeIcons: Record<QuestionDefinition["type"], LucideIcon> = {
+  text: FileText,
+  single: Sparkles,
+  multi: ListChecks,
+};
+
+function IdentityFieldWrapper({
+  field,
+  variant = "input",
+  children,
+}: {
+  field: FieldName;
+  variant?: "input" | "textarea";
+  children: ReactNode;
+}) {
+  const Icon = identityFieldIcons[field];
+  if (!Icon) return <>{children}</>;
+  return (
+    <div className="relative">
+      <span
+        className={cn(
+          "text-ink/40 pointer-events-none absolute left-4",
+          variant === "textarea" ? "top-4" : "top-1/2 -translate-y-1/2",
+        )}
+      >
+        <Icon className="h-4 w-4" aria-hidden />
+      </span>
+      {children}
+    </div>
+  );
+}
+
+function InlineIdentityIcon({
+  field,
+  className,
+}: {
+  field: FieldName;
+  className?: string;
+}) {
+  const Icon = identityFieldIcons[field];
+  if (!Icon) return null;
+  return <Icon className={className} aria-hidden />;
+}
+
+const fieldClasses =
+  "h-12 rounded-2xl border border-ink/15 bg-cream/70 px-4 text-base placeholder:text-ink/40 transition focus:border-orange focus:bg-white focus-visible:ring-0";
+const textAreaClasses =
+  "min-h-[120px] rounded-3xl border border-ink/15 bg-cream/70 px-4 py-3 text-base placeholder:text-ink/40 transition focus:border-orange focus:bg-white focus-visible:ring-0";
+const selectTriggerClasses =
+  "h-12 rounded-2xl border border-ink/15 bg-cream/70 px-4 text-base focus:ring-0 focus:outline-none";
+const panelClasses =
+  "w-full max-w-xl space-y-8 rounded-[32px] border border-ink/5 bg-white/95 p-5 shadow-[0_30px_120px_rgba(15,23,42,0.08)] backdrop-blur md:border-none md:bg-transparent md:p-0 md:shadow-none";
+
 export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
   const t = useTranslations("forms");
   const notify = useTranslations("notifications");
@@ -600,6 +680,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                 updateAnswerValue(question.id, event.target.value)
               }
               placeholder="Precisez votre reponse"
+              className={textAreaClasses}
             />
             {questionErrors[question.id] ? (
               <p className="text-xs text-red-500">
@@ -618,6 +699,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
               updateAnswerValue(question.id, event.target.value)
             }
             placeholder="Precisez votre reponse"
+            className={fieldClasses}
           />
           {questionErrors[question.id] ? (
             <p className="text-xs text-red-500">
@@ -642,7 +724,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                   type="button"
                   onClick={() => handleSingleSelect(question, optionValue)}
                   className={cn(
-                    "rounded-2xl border px-4 py-3 text-left text-sm transition",
+                    "rounded-2xl border px-5 py-4 text-left text-sm transition sm:text-base",
                     isActive
                       ? "bg-orange/10 border-orange text-orange"
                       : "border-ink/10 hover:border-orange/40",
@@ -661,6 +743,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                   updateAnswerValue(`${question.id}__other`, event.target.value)
                 }
                 placeholder="Precisez votre reponse"
+                className={fieldClasses}
               />
               {questionErrors[`${question.id}__other`] ? (
                 <p className="text-xs text-red-500">
@@ -691,7 +774,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                 type="button"
                 onClick={() => toggleMultiValue(question, optionValue)}
                 className={cn(
-                  "rounded-2xl border px-4 py-3 text-left text-sm transition",
+                  "rounded-2xl border px-5 py-4 text-left text-sm transition sm:text-base",
                   isActive
                     ? "bg-turquoise/10 border-turquoise text-turquoise"
                     : "border-ink/10 hover:border-turquoise/40",
@@ -710,6 +793,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                 updateAnswerValue(`${question.id}__other`, event.target.value)
               }
               placeholder="Precisez votre reponse"
+              className={fieldClasses}
             />
             {questionErrors[`${question.id}__other`] ? (
               <p className="text-xs text-red-500">
@@ -761,7 +845,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
   };
 
   return (
-    <section className="flex min-h-[100dvh] w-full flex-col overflow-hidden bg-beige md:flex-row">
+    <section className="from-cream via-beige/70 relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b to-white md:flex-row">
       <div className="relative h-[45vh] w-full overflow-hidden md:h-auto md:w-1/2">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -800,8 +884,8 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
         </div>
       </div>
 
-      <div className="flex flex-1 items-center bg-white px-6 py-12 md:px-16">
-        <div className="w-full max-w-xl space-y-8">
+      <div className="flex flex-1 items-start bg-white/95 px-4 pb-32 pt-10 sm:px-8 md:items-center md:bg-white md:px-16 md:pb-12 md:pt-12">
+        <div className={panelClasses}>
           <div className="space-y-3">
             <p className="text-orange/70 text-xs uppercase tracking-[0.35em]">
               {t("association.title")}
@@ -821,8 +905,9 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
               />
               <label
                 htmlFor="toggle-google-form-assoc"
-                className="text-sm text-ink"
+                className="flex items-center gap-2 text-sm text-ink"
               >
+                <ListChecks className="h-4 w-4 text-orange" />
                 {t("googleToggle")}
               </label>
               <p className="text-ink/60 text-xs">{t("recommendation")}</p>
@@ -837,7 +922,7 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
             />
           ) : (
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <div>
+              <div className="border-ink/5 bg-cream/60 rounded-[28px] border p-4 shadow-inner">
                 <div className="flex items-center gap-3">
                   <div className="flex flex-1 gap-2">
                     {steps.map((s, index) => (
@@ -903,94 +988,160 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
 
               {step.type === "category-section" ? (
                 <div className="space-y-6">
-                  {step.section.questions.map((question) => (
-                    <div key={question.id} className="space-y-3">
-                      <p className="text-sm font-medium text-ink">
-                        {question.label}
-                      </p>
-                      {renderQuestion(question)}
-                    </div>
-                  ))}
+                  {step.section.questions.map((question) => {
+                    const QuestionIcon = questionTypeIcons[question.type];
+                    return (
+                      <div key={question.id} className="space-y-3">
+                        <p className="text-sm font-medium text-ink">
+                          <span className="flex items-center gap-2">
+                            {QuestionIcon ? (
+                              <QuestionIcon className="h-4 w-4 text-turquoise" />
+                            ) : null}
+                            {question.label}
+                          </span>
+                        </p>
+                        {renderQuestion(question)}
+                      </div>
+                    );
+                  })}
                 </div>
               ) : null}
 
               {step.type === "form" ? (
                 <div className="space-y-4">
                   {fieldSet.has("orgName") ? (
-                    <Input
-                      {...form.register("orgName")}
-                      placeholder={t("association.labels.orgName")}
-                    />
+                    <IdentityFieldWrapper field="orgName">
+                      <Input
+                        {...form.register("orgName")}
+                        placeholder={t("association.labels.orgName")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.orgName && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("email") ? (
-                    <Input
-                      type="email"
-                      {...form.register("email")}
-                      placeholder={t("association.labels.email")}
-                    />
+                    <IdentityFieldWrapper field="email">
+                      <Input
+                        type="email"
+                        {...form.register("email")}
+                        placeholder={t("association.labels.email")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.email && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("website") ? (
-                    <Input
-                      {...form.register("website")}
-                      placeholder={t("association.labels.website")}
-                    />
+                    <IdentityFieldWrapper field="website">
+                      <Input
+                        {...form.register("website")}
+                        placeholder={t("association.labels.website")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.website && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("social") ? (
-                    <Input
-                      {...form.register("social")}
-                      placeholder={t("association.labels.social")}
-                    />
+                    <IdentityFieldWrapper field="social">
+                      <Input
+                        {...form.register("social")}
+                        placeholder={t("association.labels.social")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.social && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("legalStatus") ? (
-                    <Input
-                      {...form.register("legalStatus")}
-                      placeholder={t("association.labels.legalStatus")}
-                    />
+                    <IdentityFieldWrapper field="legalStatus">
+                      <Input
+                        {...form.register("legalStatus")}
+                        placeholder={t("association.labels.legalStatus")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.legalStatus && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("country") ? (
-                    <Input
-                      {...form.register("country")}
-                      placeholder={t("association.labels.country")}
-                    />
+                    <IdentityFieldWrapper field="country">
+                      <Input
+                        {...form.register("country")}
+                        placeholder={t("association.labels.country")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.country && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("city") ? (
-                    <Input
-                      {...form.register("city")}
-                      placeholder={t("association.labels.city")}
-                    />
+                    <IdentityFieldWrapper field="city">
+                      <Input
+                        {...form.register("city")}
+                        placeholder={t("association.labels.city")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.city && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("modality") ? (
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-ink">
                         {t("association.labels.modality")}
                       </label>
-                      <Select
-                        value={form.watch("modality")}
-                        onValueChange={(val) =>
-                          form.setValue(
-                            "modality",
-                            val as FormValues["modality"],
-                          )
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {modalities.map((option) => (
-                            <SelectItem key={option.value} value={option.value}>
-                              {option.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <IdentityFieldWrapper field="modality">
+                        <Select
+                          value={form.watch("modality")}
+                          onValueChange={(val) =>
+                            form.setValue(
+                              "modality",
+                              val as FormValues["modality"],
+                            )
+                          }
+                        >
+                          <SelectTrigger
+                            className={cn(
+                              selectTriggerClasses,
+                              identityFieldIcons.modality && "pl-12",
+                            )}
+                          >
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {modalities.map((option) => (
+                              <SelectItem
+                                key={option.value}
+                                value={option.value}
+                              >
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </IdentityFieldWrapper>
                     </div>
                   ) : null}
                   {fieldSet.has("urgency") ? (
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-ink">
-                        {t("association.labels.urgency")} (
-                        {form.watch("urgency")})
+                        <span className="flex items-center gap-2">
+                          <InlineIdentityIcon
+                            field="urgency"
+                            className="h-4 w-4 text-orange"
+                          />
+                          {t("association.labels.urgency")} (
+                          {form.watch("urgency")})
+                        </span>
                       </label>
                       <input
                         type="range"
@@ -1006,29 +1157,49 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                     </div>
                   ) : null}
                   {fieldSet.has("startDate") ? (
-                    <Input type="date" {...form.register("startDate")} />
+                    <IdentityFieldWrapper field="startDate">
+                      <Input
+                        type="date"
+                        {...form.register("startDate")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.startDate && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                   {fieldSet.has("endDate") ? (
-                    <Input type="date" {...form.register("endDate")} />
+                    <IdentityFieldWrapper field="endDate">
+                      <Input
+                        type="date"
+                        {...form.register("endDate")}
+                        className={cn(
+                          fieldClasses,
+                          identityFieldIcons.endDate && "pl-12",
+                        )}
+                      />
+                    </IdentityFieldWrapper>
                   ) : null}
                 </div>
               ) : null}
 
-              <div className="flex flex-wrap justify-between gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={handleBack}
                   disabled={currentStep === 0}
-                  className="border-orange/40 rounded-full text-ink hover:text-orange"
+                  className="border-orange/40 h-12 rounded-full text-ink hover:text-orange sm:w-auto"
+                  size="lg"
                 >
-                  Back
+                  {t("actions.back")}
                 </Button>
                 {isLast ? (
                   <Button
                     type="submit"
                     disabled={pending}
-                    className="rounded-full bg-orange px-8 text-white hover:bg-turquoise"
+                    className="h-12 w-full rounded-full bg-orange px-8 text-white hover:bg-turquoise sm:w-auto"
+                    size="lg"
                   >
                     {pending ? "..." : t("association.labels.submit")}
                   </Button>
@@ -1036,9 +1207,10 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
                   <Button
                     type="button"
                     onClick={handleNext}
-                    className="rounded-full bg-orange px-8 text-white hover:bg-turquoise"
+                    className="h-12 w-full rounded-full bg-orange px-8 text-white hover:bg-turquoise sm:w-auto"
+                    size="lg"
                   >
-                    Next
+                    {t("actions.next")}
                   </Button>
                 )}
               </div>

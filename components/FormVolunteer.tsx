@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,6 +20,25 @@ import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import type { LucideIcon } from "lucide-react";
+import {
+  Building,
+  CalendarClock,
+  CalendarDays,
+  Clock3,
+  Globe,
+  HeartHandshake,
+  Languages as LanguagesIcon,
+  ListChecks,
+  Mail,
+  MapPin,
+  MapPinned,
+  ShieldCheck,
+  Sparkles,
+  UserRound,
+  UserRoundCheck,
+  Wifi,
+} from "lucide-react";
 
 const formSchema = z.object({
   firstName: z.string().min(2),
@@ -68,6 +87,85 @@ const volunteerImages = [
   "/images/form-02.jpg",
   "/images/form-03.jpg",
 ];
+
+const fieldIcons: Partial<Record<FieldName, LucideIcon>> = {
+  firstName: UserRound,
+  lastName: UserRoundCheck,
+  email: Mail,
+  languages: LanguagesIcon,
+  country: Globe,
+  city: Building,
+  skills: Sparkles,
+  causes: HeartHandshake,
+  preferredCountries: MapPinned,
+  availability: Clock3,
+  availableFrom: CalendarDays,
+  availableTo: CalendarClock,
+  modality: MapPin,
+  remoteOk: Wifi,
+  consent: ShieldCheck,
+};
+
+function FieldIconMark({
+  icon: Icon,
+  variant = "input",
+}: {
+  icon?: LucideIcon;
+  variant?: "input" | "textarea";
+}) {
+  if (!Icon) return null;
+  return (
+    <span
+      className={cn(
+        "text-ink/40 pointer-events-none absolute left-4",
+        variant === "textarea" ? "top-4" : "top-1/2 -translate-y-1/2",
+      )}
+    >
+      <Icon className="h-4 w-4" aria-hidden />
+    </span>
+  );
+}
+
+function FieldWrapper({
+  field,
+  variant = "input",
+  children,
+}: {
+  field: FieldName;
+  variant?: "input" | "textarea";
+  children: ReactNode;
+}) {
+  if (!fieldIcons[field]) {
+    return <>{children}</>;
+  }
+  return (
+    <div className="relative">
+      <FieldIconMark icon={fieldIcons[field]} variant={variant} />
+      {children}
+    </div>
+  );
+}
+
+function InlineFieldIcon({
+  field,
+  className,
+}: {
+  field: FieldName;
+  className?: string;
+}) {
+  const Icon = fieldIcons[field];
+  if (!Icon) return null;
+  return <Icon className={className} aria-hidden />;
+}
+
+const fieldClasses =
+  "h-12 rounded-2xl border border-ink/15 bg-cream/70 px-4 text-base placeholder:text-ink/40 transition focus:border-orange focus:bg-white focus-visible:ring-0";
+const textAreaClasses =
+  "min-h-[120px] rounded-3xl border border-ink/15 bg-cream/70 px-4 py-3 text-base placeholder:text-ink/40 transition focus:border-orange focus:bg-white focus-visible:ring-0";
+const selectTriggerClasses =
+  "h-12 rounded-2xl border border-ink/15 bg-cream/70 px-4 text-base focus:ring-0 focus:outline-none";
+const formCardClasses =
+  "space-y-8 rounded-[32px] border border-ink/5 bg-white/95 p-5 shadow-[0_30px_120px_rgba(15,23,42,0.08)] backdrop-blur md:border-none md:bg-transparent md:p-0 md:shadow-none";
 
 export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
   const t = useTranslations("forms");
@@ -171,7 +269,7 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
   const isLast = currentStep === totalSteps - 1;
 
   return (
-    <section className="flex min-h-[100dvh] w-full flex-col overflow-hidden bg-beige md:flex-row">
+    <section className="from-cream via-beige/70 relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b to-white md:flex-row">
       <div className="relative h-[45vh] w-full overflow-hidden md:h-auto md:w-1/2">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -210,8 +308,8 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
         </div>
       </div>
 
-      <div className="flex flex-1 items-center bg-white px-6 py-12 md:px-16">
-        <div className="w-full max-w-xl space-y-8">
+      <div className="flex flex-1 items-start bg-white/95 px-4 pb-32 pt-10 sm:px-8 md:items-center md:bg-white md:px-16 md:pb-12 md:pt-12">
+        <div className={`w-full max-w-xl ${formCardClasses}`}>
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.35em] text-turquoise">
               {t("volunteer.title")}
@@ -231,8 +329,9 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
               />
               <label
                 htmlFor="toggle-google-form-vol"
-                className="text-sm text-ink"
+                className="flex items-center gap-2 text-sm text-ink"
               >
+                <ListChecks className="h-4 w-4 text-orange" />
                 {t("googleToggle")}
               </label>
               <p className="text-ink/60 text-xs">{t("recommendation")}</p>
@@ -247,7 +346,7 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
             />
           ) : (
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <div>
+              <div className="border-ink/5 bg-cream/60 rounded-[28px] border p-4 shadow-inner">
                 <div className="flex items-center gap-3">
                   {steps.map((s, index) => (
                     <button
@@ -275,85 +374,137 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
 
               <div className="space-y-4">
                 {fieldSet.has("firstName") && (
-                  <Input
-                    {...form.register("firstName")}
-                    placeholder={t("volunteer.labels.firstName")}
-                  />
+                  <FieldWrapper field="firstName">
+                    <Input
+                      {...form.register("firstName")}
+                      placeholder={t("volunteer.labels.firstName")}
+                      className={cn(
+                        fieldClasses,
+                        fieldIcons.firstName && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("lastName") && (
-                  <Input
-                    {...form.register("lastName")}
-                    placeholder={t("volunteer.labels.lastName")}
-                  />
+                  <FieldWrapper field="lastName">
+                    <Input
+                      {...form.register("lastName")}
+                      placeholder={t("volunteer.labels.lastName")}
+                      className={cn(
+                        fieldClasses,
+                        fieldIcons.lastName && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("email") && (
-                  <Input
-                    type="email"
-                    {...form.register("email")}
-                    placeholder={t("volunteer.labels.email")}
-                  />
+                  <FieldWrapper field="email">
+                    <Input
+                      type="email"
+                      {...form.register("email")}
+                      placeholder={t("volunteer.labels.email")}
+                      className={cn(fieldClasses, fieldIcons.email && "pl-12")}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("languages") && (
-                  <Textarea
-                    {...form.register("languages")}
-                    placeholder={t("volunteer.labels.languages")}
-                  />
+                  <FieldWrapper field="languages" variant="textarea">
+                    <Textarea
+                      {...form.register("languages")}
+                      placeholder={t("volunteer.labels.languages")}
+                      className={cn(
+                        textAreaClasses,
+                        fieldIcons.languages && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("country") && (
-                  <Input
-                    {...form.register("country")}
-                    placeholder={t("volunteer.labels.country")}
-                  />
+                  <FieldWrapper field="country">
+                    <Input
+                      {...form.register("country")}
+                      placeholder={t("volunteer.labels.country")}
+                      className={cn(
+                        fieldClasses,
+                        fieldIcons.country && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("city") && (
-                  <Input
-                    {...form.register("city")}
-                    placeholder={t("volunteer.labels.city")}
-                  />
+                  <FieldWrapper field="city">
+                    <Input
+                      {...form.register("city")}
+                      placeholder={t("volunteer.labels.city")}
+                      className={cn(fieldClasses, fieldIcons.city && "pl-12")}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("skills") && (
-                  <Textarea
-                    {...form.register("skills")}
-                    placeholder={t("volunteer.labels.skills")}
-                  />
+                  <FieldWrapper field="skills" variant="textarea">
+                    <Textarea
+                      {...form.register("skills")}
+                      placeholder={t("volunteer.labels.skills")}
+                      className={cn(
+                        textAreaClasses,
+                        fieldIcons.skills && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("causes") && (
-                  <Input
-                    {...form.register("causes")}
-                    placeholder={t("volunteer.labels.causes")}
-                  />
+                  <FieldWrapper field="causes">
+                    <Input
+                      {...form.register("causes")}
+                      placeholder={t("volunteer.labels.causes")}
+                      className={cn(fieldClasses, fieldIcons.causes && "pl-12")}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("preferredCountries") && (
-                  <Textarea
-                    {...form.register("preferredCountries")}
-                    placeholder={t("volunteer.labels.preferredCountries")}
-                  />
+                  <FieldWrapper field="preferredCountries" variant="textarea">
+                    <Textarea
+                      {...form.register("preferredCountries")}
+                      placeholder={t("volunteer.labels.preferredCountries")}
+                      className={cn(
+                        textAreaClasses,
+                        fieldIcons.preferredCountries && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("availability") && (
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-ink">
                       {t("volunteer.labels.availability")}
                     </label>
-                    <Select
-                      value={form.watch("availability")}
-                      onValueChange={(val) =>
-                        form.setValue(
-                          "availability",
-                          val as FormValues["availability"],
-                        )
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {availabilityOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <FieldWrapper field="availability">
+                      <Select
+                        value={form.watch("availability")}
+                        onValueChange={(val) =>
+                          form.setValue(
+                            "availability",
+                            val as FormValues["availability"],
+                          )
+                        }
+                      >
+                        <SelectTrigger
+                          className={cn(
+                            selectTriggerClasses,
+                            fieldIcons.availability && "pl-12",
+                          )}
+                        >
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {availabilityOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FieldWrapper>
                   </div>
                 )}
                 {fieldSet.has("modality") && (
@@ -361,70 +512,112 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
                     <label className="text-sm font-medium text-ink">
                       {t("volunteer.labels.modality")}
                     </label>
-                    <Select
-                      value={form.watch("modality")}
-                      onValueChange={(val) =>
-                        form.setValue("modality", val as FormValues["modality"])
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {modalities.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <FieldWrapper field="modality">
+                      <Select
+                        value={form.watch("modality")}
+                        onValueChange={(val) =>
+                          form.setValue(
+                            "modality",
+                            val as FormValues["modality"],
+                          )
+                        }
+                      >
+                        <SelectTrigger
+                          className={cn(
+                            selectTriggerClasses,
+                            fieldIcons.modality && "pl-12",
+                          )}
+                        >
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {modalities.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FieldWrapper>
                   </div>
                 )}
                 {fieldSet.has("availableFrom") && (
-                  <Input type="date" {...form.register("availableFrom")} />
+                  <FieldWrapper field="availableFrom">
+                    <Input
+                      type="date"
+                      {...form.register("availableFrom")}
+                      className={cn(
+                        fieldClasses,
+                        fieldIcons.availableFrom && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("availableTo") && (
-                  <Input type="date" {...form.register("availableTo")} />
+                  <FieldWrapper field="availableTo">
+                    <Input
+                      type="date"
+                      {...form.register("availableTo")}
+                      className={cn(
+                        fieldClasses,
+                        fieldIcons.availableTo && "pl-12",
+                      )}
+                    />
+                  </FieldWrapper>
                 )}
                 {fieldSet.has("remoteOk") && (
-                  <label className="flex items-center gap-2 text-sm text-ink">
+                  <label className="flex items-center gap-2 text-base text-ink">
                     <Checkbox
                       checked={form.watch("remoteOk")}
                       onCheckedChange={(val) =>
                         form.setValue("remoteOk", Boolean(val))
                       }
                     />
-                    {t("volunteer.labels.remoteOk")}
+                    <span className="flex items-center gap-2">
+                      <InlineFieldIcon
+                        field="remoteOk"
+                        className="h-4 w-4 text-turquoise"
+                      />
+                      {t("volunteer.labels.remoteOk")}
+                    </span>
                   </label>
                 )}
                 {fieldSet.has("consent") && (
-                  <label className="flex items-center gap-2 text-sm text-ink">
+                  <label className="flex items-center gap-2 text-base text-ink">
                     <Checkbox
                       checked={form.watch("consent")}
                       onCheckedChange={(val) =>
                         form.setValue("consent", Boolean(val))
                       }
                     />
-                    {t("volunteer.labels.consent")}
+                    <span className="flex items-center gap-2">
+                      <InlineFieldIcon
+                        field="consent"
+                        className="h-4 w-4 text-orange"
+                      />
+                      {t("volunteer.labels.consent")}
+                    </span>
                   </label>
                 )}
               </div>
 
-              <div className="flex flex-wrap justify-between gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={handleBack}
                   disabled={currentStep === 0}
-                  className="border-orange/40 rounded-full text-ink hover:text-orange"
+                  className="border-orange/40 h-12 rounded-full text-ink hover:text-orange sm:w-auto"
+                  size="lg"
                 >
-                  Back
+                  {t("actions.back")}
                 </Button>
                 {isLast ? (
                   <Button
                     type="submit"
                     disabled={pending}
-                    className="rounded-full bg-orange px-8 text-white hover:bg-turquoise"
+                    className="h-12 w-full rounded-full bg-orange px-8 text-white hover:bg-turquoise sm:w-auto"
+                    size="lg"
                   >
                     {pending ? "..." : t("volunteer.labels.submit")}
                   </Button>
@@ -432,9 +625,10 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
                   <Button
                     type="button"
                     onClick={handleNext}
-                    className="rounded-full bg-orange px-8 text-white hover:bg-turquoise"
+                    className="h-12 w-full rounded-full bg-orange px-8 text-white hover:bg-turquoise sm:w-auto"
+                    size="lg"
                   >
-                    Next
+                    {t("actions.next")}
                   </Button>
                 )}
               </div>

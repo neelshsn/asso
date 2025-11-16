@@ -1,5 +1,6 @@
 import "@/lib/cron";
 import { SiteFooter } from "@/components/SiteFooter";
+import { MobileDock } from "@/components/MobileDock";
 import { locales, type Locale } from "@/lib/i18n/config";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -37,9 +38,10 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
       <body className="bg-cream text-ink antialiased">
         <NextIntlClientProvider locale={safeLocale} messages={messages}>
           <div className="flex min-h-screen flex-col">
-            <main className="bg-cream flex-1">{children}</main>
+            <main className="bg-cream flex-1 pb-28 md:pb-0">{children}</main>
             <SiteFooter />
           </div>
+          <MobileDock />
           <Toaster richColors position="top-right" duration={4000} />
         </NextIntlClientProvider>
       </body>
