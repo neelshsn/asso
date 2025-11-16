@@ -15,7 +15,7 @@ import { LockKeyhole } from "lucide-react";
 const loginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
-  remember: z.boolean().default(true),
+  remember: z.boolean(),
 });
 
 type LoginValues = z.infer<typeof loginSchema>;
