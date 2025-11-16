@@ -41,6 +41,15 @@ body {
   color: var(--color-ink);
 }
 
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .focus-outline {
   outline: 3px solid rgba(255, 79, 15, 0.35);
   outline-offset: 2px;

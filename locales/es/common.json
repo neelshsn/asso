@@ -304,6 +304,22 @@
     ],
     "cta": "Hablar con un mission lead"
   },
+  "jeanne": {
+    "eyebrow": "¿Quién soy?",
+    "title": "Jeanne Brantus",
+    "subtitle": "Fundadora de N'GO Match y reportera de terreno",
+    "paragraphs": [
+      "Me llamo Jeanne Brantus, tengo 26 años y crecí entre la luz de Córcega y las calles de Lyon. Muy pronto sentí la necesidad de entender lo que había “en otra parte”. Esa intuición me llevó a Togo, Benín, Tanzania, India, Filipinas… Lugares donde se aprende que el voluntariado no es un viaje: es un encuentro.",
+      "De misión en misión descubrí las preguntas de los voluntarios, las necesidades reales de las asociaciones y los malentendidos que a veces separan a ambos lados. Allí nació mi convicción: hace falta un puente. Un espacio simple, humano y sincero.",
+      "Con N'GO uso mi experiencia para guiar a quienes quieren implicarse y dar visibilidad a las asociaciones que actúan cada día. A través de Instagram y de reportajes en el terreno cuento lo que vi, lo que aprendí y lo que el mundo me confió.",
+      "Mi objetivo es simple: ayudar a cada persona a encontrar su lugar donde realmente pueda servir."
+    ],
+    "instagram": {
+      "title": "Diario en Instagram",
+      "subtitle": "Tres reels para sentir la energía del terreno."
+    },
+    "imageAlt": "Retrato de Jeanne Brantus"
+  },
   "contactPanel": {
     "title": "¿Listo para lanzar una misión?",
     "subtitle": "Comparte un brief, pide due diligence o coordina con nuestro equipo Matchroom.",

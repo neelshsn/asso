@@ -286,7 +286,7 @@
     }
   },
   "pulse": {
-    "title": "L’impulsion du moment",
+    "title": "L'impulsion du moment",
     "subtitle": "La plateforme vit 24/7 pour que les humains approuvés ne patientent jamais plus de quelques jours.",
     "stats": [
       {
@@ -303,6 +303,22 @@
       }
     ],
     "cta": "Parler à un lead mission"
+  },
+  "jeanne": {
+    "eyebrow": "Qui suis-je ?",
+    "title": "Jeanne Brantus",
+    "subtitle": "Fondatrice de N'GO Match & reporter de terrain",
+    "paragraphs": [
+      "Je m’appelle Jeanne Brantus, j’ai 26 ans, et je viens d’un monde partagé entre la lumière de la Corse et les rues de Lyon. Très tôt, j’ai eu le besoin de comprendre ce qu’il y avait « ailleurs ». Alors j’ai suivi cette intuition jusqu’au Togo, au Bénin, en Tanzanie, en Inde, aux Philippines… Des lieux où l’on apprend que le volontariat n’est pas un voyage : c’est une rencontre.",
+      "De mission en mission, j’ai découvert les questions que se posent les volontaires, les besoins réels des associations, les malentendus qui parfois séparent les deux. C’est là qu’est née ma conviction : il faut un pont. Un espace simple, humain, sincère.",
+      "Avec N’GO, j’utilise mon expérience pour guider ceux qui veulent s’engager et donner de la visibilité aux associations qui agissent chaque jour. À travers Instagram et des reportages sur le terrain, je raconte ce que j’ai vu, ce que j’ai appris, et ce que le monde m’a confié.",
+      "Mon but est simple : aider chacun à trouver sa place là où il peut vraiment servir."
+    ],
+    "instagram": {
+      "title": "Carnet Instagram",
+      "subtitle": "Trois immersions en vidéo pour ressentir la vie du terrain."
+    },
+    "imageAlt": "Portrait de Jeanne Brantus"
   },
   "contactPanel": {
     "title": "Prêt·e à lancer une mission ?",

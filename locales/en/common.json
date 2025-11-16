@@ -304,6 +304,22 @@
     ],
     "cta": "Talk to a mission lead"
   },
+  "jeanne": {
+    "eyebrow": "Who am I?",
+    "title": "Jeanne Brantus",
+    "subtitle": "Founder of N'GO Match & field reporter",
+    "paragraphs": [
+      "My name is Jeanne Brantus, I am 26, and I grew up between the light of Corsica and the streets of Lyon. Very early on I wanted to understand what existed “elsewhere”. That curiosity pushed me to Togo, Benin, Tanzania, India, the Philippines... Places that teach you volunteering is not a trip—it is a meeting.",
+      "From mission to mission I discovered the questions volunteers keep, the real needs of associations, and the misunderstandings that sometimes separate both sides. That is when my conviction was born: we need a bridge—something simple, human, sincere.",
+      "With N'GO I use that experience to guide anyone who wants to engage and to give visibility to associations acting every day. Through Instagram and on-the-ground reports I share what I have seen, learned, and what communities entrusted to me.",
+      "My goal is simple: help everyone find their seat where they can truly serve."
+    ],
+    "instagram": {
+      "title": "Instagram diary",
+      "subtitle": "Three reels to feel the pulse of the field."
+    },
+    "imageAlt": "Portrait of Jeanne Brantus"
+  },
   "contactPanel": {
     "title": "Ready to launch a mission?",
     "subtitle": "Share a brief, ask for due diligence, or simply sync with our matchroom team.",
