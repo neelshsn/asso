@@ -153,10 +153,13 @@
         "firstName": "Prénom",
         "lastName": "Nom",
         "email": "Email",
+        "emailLocal": "Avant le @",
+        "emailDomain": "Après le @",
         "languages": "Langues parlées",
         "country": "Pays",
         "city": "Ville",
         "skills": "Compétences",
+        "skillOther": "Précisez une autre compétence",
         "causes": "Causes",
         "availability": "Disponibilités",
         "availableFrom": "Disponible à partir du",
@@ -166,6 +169,45 @@
         "remoteOk": "Mission à distance possible",
         "consent": "J’accepte de partager mon email lorsqu’un match est trouvé.",
         "submit": "Partager mon profil"
+      },
+      "helpers": {
+        "languages": "Choisissez toutes les langues dans lesquelles vous êtes à l’aise.",
+        "country": "Votre pays de résidence actuel nous aide à préparer la logistique.",
+        "skills": "Indiquez les super-pouvoirs que vous souhaitez offrir.",
+        "causes": "Sélectionnez les causes qui vous font vibrer.",
+        "preferredCountries": "Les pays ou régions où vous aimeriez partir en mission."
+      },
+      "languageOptions": {
+        "fr": "Français",
+        "en": "Anglais",
+        "es": "Espagnol",
+        "ar": "Arabe",
+        "pt": "Portugais",
+        "sw": "Swahili",
+        "de": "Allemand",
+        "it": "Italien"
+      },
+      "countryOptions": {
+        "france": "France",
+        "morocco": "Maroc",
+        "senegal": "Sénégal",
+        "ivoryCoast": "Côte d'Ivoire",
+        "tunisia": "Tunisie",
+        "madagascar": "Madagascar",
+        "cameroon": "Cameroun",
+        "kenya": "Kenya",
+        "rwanda": "Rwanda",
+        "cambodia": "Cambodge"
+      },
+      "skillOptions": {
+        "education": "Éducation & mentorat",
+        "health": "Santé & soins",
+        "logistics": "Logistique & opérations",
+        "communication": "Communication & média",
+        "fundraising": "Collecte de fonds & partenariats",
+        "management": "Gestion de projet",
+        "tech": "Tech & data",
+        "other": "Autre"
       }
     },
     "association": {
@@ -240,8 +282,18 @@
     }
   },
   "success": {
+    "eyebrow": "Formulaire envoyé",
     "title": "Merci !",
-    "subtitle": "Nous avons bien reçu vos informations et revenons vers vous rapidement.",
+    "subtitle": "Nous vérifions vos réponses et revenons vers vous par email sous 48h.",
+    "volunteer": {
+      "title": "Côté volontaires",
+      "description": "Votre profil rejoint la file d'attente prioritaire. Nous vous recontactons par mail avec les prochaines missions compatibles."
+    },
+    "association": {
+      "title": "Côté associations",
+      "description": "Votre brief est analysé par l'équipe N'GO. Nous revenons vers vous avec des questions ou des profils qualifiés."
+    },
+    "reminder": "Pensez à vérifier votre boîte mail (et les spams) : nous confirmons chaque étape par message.",
     "cta": "Retour à l’accueil"
   },
   "notifications": {

@@ -5,7 +5,13 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
-    ignores: ["node_modules", ".next", "public/fonts", "next-env.d.ts"],
+    ignores: [
+      "node_modules",
+      ".next",
+      "public/fonts",
+      "public/flag-icons-main",
+      "next-env.d.ts",
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

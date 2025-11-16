@@ -1,17 +1,52 @@
-﻿import { getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/lib/navigation";
 
 export default async function SuccessPage() {
   const t = await getTranslations("success");
+  const sections = [
+    {
+      key: "volunteer",
+      title: t("volunteer.title"),
+      description: t("volunteer.description"),
+    },
+    {
+      key: "association",
+      title: t("association.title"),
+      description: t("association.description"),
+    },
+  ];
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col items-center rounded-3xl bg-white/90 p-12 text-center shadow-card">
-      <h1 className="text-teal font-display text-4xl">{t("title")}</h1>
-      <p className="text-ink/80 mt-4 text-lg">{t("subtitle")}</p>
-      <Button asChild className="bg-teal hover:bg-pink mt-8 rounded-full">
-        <Link href="/">{t("cta")}</Link>
-      </Button>
-    </div>
+    <section className="from-cream bg-gradient-to-b to-white py-16">
+      <div className="mx-auto flex max-w-4xl flex-col gap-8 rounded-[32px] bg-white/90 p-10 text-center shadow-[0_30px_120px_rgba(15,23,42,0.08)]">
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.35em] text-turquoise">
+            {t("eyebrow")}
+          </p>
+          <h1 className="font-display text-4xl text-ink">{t("title")}</h1>
+          <p className="text-ink/70 text-lg">{t("subtitle")}</p>
+        </div>
+        <div className="grid gap-4 text-left md:grid-cols-2">
+          {sections.map((section) => (
+            <article
+              key={section.key}
+              className="border-ink/10 bg-cream/40 rounded-3xl border px-5 py-6"
+            >
+              <h2 className="text-lg font-semibold text-ink">
+                {section.title}
+              </h2>
+              <p className="text-ink/70 mt-2 text-sm">{section.description}</p>
+            </article>
+          ))}
+        </div>
+        <p className="text-ink/60 text-sm">{t("reminder")}</p>
+        <div>
+          <Button asChild className="bg-teal hover:bg-pink rounded-full px-8">
+            <Link href="/">{t("cta")}</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import { causeCatalogMap, type CauseId } from "@/lib/cause-catalog";
 import type { LucideIcon } from "lucide-react";
 import {
   Accessibility,
@@ -197,6 +198,10 @@ const specializedVolunteerOptions: ChoiceOption[] = [
       "Non, ce n'est pas necessaire, la motivation et la sensibilite suffisent !",
   },
 ];
+
+function getCauseLabel(id: CauseId) {
+  return causeCatalogMap[id]?.label ?? id;
+}
 
 const standardIdentityFields: FieldName[] = [
   "orgName",
@@ -1389,7 +1394,7 @@ function multiQuestion(
 function createHandicapCategory(): CategoryDefinition {
   return {
     id: "handicap",
-    label: "Handicap",
+    label: getCauseLabel("handicap"),
     description:
       "Centres d'accueil et structures specialisees pour handicaps mentaux ou physiques.",
     icon: Accessibility,
@@ -1504,7 +1509,7 @@ function createHandicapCategory(): CategoryDefinition {
 function createRetraitesCategory(): CategoryDefinition {
   return {
     id: "retraites",
-    label: "Personnes retraitees",
+    label: getCauseLabel("retraites"),
     description:
       "Structures qui accompagnent les seniors et rompent l'isolement.",
     icon: HeartHandshake,
@@ -1609,7 +1614,7 @@ function createRetraitesCategory(): CategoryDefinition {
 function createEcologieCategory(): CategoryDefinition {
   return {
     id: "ecologie",
-    label: "Ecologie",
+    label: getCauseLabel("ecologie"),
     description:
       "Associations qui agissent pour la reforestation, les oceans ou la faune.",
     icon: Trees,
@@ -1691,7 +1696,7 @@ function createEcologieCategory(): CategoryDefinition {
 function createSdfCategory(): CategoryDefinition {
   return {
     id: "sdf",
-    label: "SDF & maraudes",
+    label: getCauseLabel("sdf"),
     description:
       "Associations de rue, maraudes et accueils de jour pour personnes sans-abri.",
     icon: Tent,
@@ -1782,7 +1787,7 @@ function createSdfCategory(): CategoryDefinition {
 function createEtudiantsCategory(): CategoryDefinition {
   return {
     id: "etudiants",
-    label: "Etudiants",
+    label: getCauseLabel("etudiants"),
     description:
       "Programmes de bourses, mentorat et accompagnement des jeunes.",
     icon: GraduationCap,
@@ -1895,7 +1900,7 @@ function createEtudiantsCategory(): CategoryDefinition {
 function createRechercheCategory(): CategoryDefinition {
   return {
     id: "recherche",
-    label: "Recherche & sante",
+    label: getCauseLabel("recherche"),
     description:
       "Fondations medicales, laboratoires solidaires ou Telethon local.",
     icon: Stethoscope,
@@ -2004,7 +2009,7 @@ function createRechercheCategory(): CategoryDefinition {
 function createAnimauxCategory(): CategoryDefinition {
   return {
     id: "animaux",
-    label: "Animaux",
+    label: getCauseLabel("animaux"),
     description: "Refuges et sanctuaires pour animaux domestiques ou sauvages.",
     icon: PawPrint,
     sections: [
@@ -2124,7 +2129,7 @@ function createAnimauxCategory(): CategoryDefinition {
 function createFamineCategory(): CategoryDefinition {
   return {
     id: "famine",
-    label: "Famine",
+    label: getCauseLabel("famine"),
     description: "ONG alimentaires et soutien agricole contre la malnutrition.",
     icon: UtensilsCrossed,
     sections: [
@@ -2227,7 +2232,7 @@ function createFamineCategory(): CategoryDefinition {
 function createIsolementCategory(): CategoryDefinition {
   return {
     id: "isolement",
-    label: "Personnes isolees",
+    label: getCauseLabel("isolement"),
     description: "Visites et accompagnement social pour rompre la solitude.",
     icon: UsersRound,
     sections: [
@@ -2321,7 +2326,7 @@ function createIsolementCategory(): CategoryDefinition {
 function createOrphelinsCategory(): CategoryDefinition {
   return {
     id: "orphelins",
-    label: "Enfants & orphelins",
+    label: getCauseLabel("orphelins"),
     description:
       "Maisons d'enfants, foyers ou structures de protection de l'enfance.",
     icon: Baby,
@@ -2447,7 +2452,7 @@ function createOrphelinsCategory(): CategoryDefinition {
 function createFemmesCategory(): CategoryDefinition {
   return {
     id: "femmes",
-    label: "Femmes",
+    label: getCauseLabel("femmes"),
     description:
       "Associations de soutien aux femmes victimes de violences ou meres seules.",
     icon: HandHelping,

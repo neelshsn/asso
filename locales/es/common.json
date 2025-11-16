@@ -153,10 +153,13 @@
         "firstName": "Nombre",
         "lastName": "Apellidos",
         "email": "Email",
+        "emailLocal": "Antes del @",
+        "emailDomain": "Después del @",
         "languages": "Idiomas",
         "country": "País",
         "city": "Ciudad",
         "skills": "Competencias",
+        "skillOther": "Añade otra competencia",
         "causes": "Causas",
         "availability": "Disponibilidad",
         "availableFrom": "Disponible desde",
@@ -166,6 +169,45 @@
         "remoteOk": "Acepto remoto",
         "consent": "Autorizo compartir mi email cuando haya un match.",
         "submit": "Compartir mi perfil"
+      },
+      "helpers": {
+        "languages": "Marca todos los idiomas en los que te sientas cómodo.",
+        "country": "Tu país actual nos ayuda a prever la logística.",
+        "skills": "Destaca los superpoderes que quieres aportar.",
+        "causes": "Elige las causas que más te inspiran.",
+        "preferredCountries": "Países o regiones donde te encantaría ir de misión."
+      },
+      "languageOptions": {
+        "fr": "Francés",
+        "en": "Inglés",
+        "es": "Español",
+        "ar": "Árabe",
+        "pt": "Portugués",
+        "sw": "Suajili",
+        "de": "Alemán",
+        "it": "Italiano"
+      },
+      "countryOptions": {
+        "france": "Francia",
+        "morocco": "Marruecos",
+        "senegal": "Senegal",
+        "ivoryCoast": "Costa de Marfil",
+        "tunisia": "Túnez",
+        "madagascar": "Madagascar",
+        "cameroon": "Camerún",
+        "kenya": "Kenia",
+        "rwanda": "Ruanda",
+        "cambodia": "Camboya"
+      },
+      "skillOptions": {
+        "education": "Educación y mentoría",
+        "health": "Salud y cuidados",
+        "logistics": "Logística y operaciones",
+        "communication": "Comunicación y medios",
+        "fundraising": "Recaudación y alianzas",
+        "management": "Gestión de proyectos",
+        "tech": "Tecnología y datos",
+        "other": "Otro"
       }
     },
     "association": {
@@ -240,8 +282,18 @@
     }
   },
   "success": {
+    "eyebrow": "Formulario enviado",
     "title": "¡Gracias!",
-    "subtitle": "Recibimos tu información y te contactaremos pronto.",
+    "subtitle": "Revisamos tus respuestas y te escribimos por email en menos de 48 horas.",
+    "volunteer": {
+      "title": "Lado voluntarios",
+      "description": "Tu perfil entra en la vía rápida. Te avisaremos por email cuando surjan misiones alineadas."
+    },
+    "association": {
+      "title": "Lado asociaciones",
+      "description": "El equipo N'GO analiza tu brief. Espera preguntas o perfiles cualificados directamente en tu bandeja."
+    },
+    "reminder": "No olvides revisar tu correo (y spam) para no perder nuestro mensaje.",
     "cta": "Volver al inicio"
   },
   "notifications": {

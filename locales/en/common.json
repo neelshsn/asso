@@ -153,10 +153,13 @@
         "firstName": "First name",
         "lastName": "Last name",
         "email": "Email",
+        "emailLocal": "Before the @",
+        "emailDomain": "After the @",
         "languages": "Languages",
         "country": "Country",
         "city": "City",
         "skills": "Skills",
+        "skillOther": "Add another skill",
         "causes": "Causes",
         "availability": "Availability",
         "availableFrom": "Available from",
@@ -166,6 +169,45 @@
         "remoteOk": "Remote is ok",
         "consent": "I consent to share my email when a match is found.",
         "submit": "Share my profile"
+      },
+      "helpers": {
+        "languages": "Pick every language you feel comfortable speaking.",
+        "country": "Your current country helps us plan logistics faster.",
+        "skills": "Highlight the superpowers you want to contribute.",
+        "causes": "Select the causes that motivate you the most.",
+        "preferredCountries": "Countries or regions where you'd love to be deployed."
+      },
+      "languageOptions": {
+        "fr": "French",
+        "en": "English",
+        "es": "Spanish",
+        "ar": "Arabic",
+        "pt": "Portuguese",
+        "sw": "Swahili",
+        "de": "German",
+        "it": "Italian"
+      },
+      "countryOptions": {
+        "france": "France",
+        "morocco": "Morocco",
+        "senegal": "Senegal",
+        "ivoryCoast": "Ivory Coast",
+        "tunisia": "Tunisia",
+        "madagascar": "Madagascar",
+        "cameroon": "Cameroon",
+        "kenya": "Kenya",
+        "rwanda": "Rwanda",
+        "cambodia": "Cambodia"
+      },
+      "skillOptions": {
+        "education": "Education & mentoring",
+        "health": "Health & care",
+        "logistics": "Logistics & operations",
+        "communication": "Comms & media",
+        "fundraising": "Fundraising & partnerships",
+        "management": "Project management",
+        "tech": "Tech & data",
+        "other": "Other"
       }
     },
     "association": {
@@ -240,8 +282,18 @@
     }
   },
   "success": {
+    "eyebrow": "Form submitted",
     "title": "Thank you!",
-    "subtitle": "We received your information and will be in touch shortly.",
+    "subtitle": "We're reviewing everything and will follow up by email within 48 hours.",
+    "volunteer": {
+      "title": "For volunteers",
+      "description": "Your profile enters the fast lane. We'll email you as soon as aligned missions open up."
+    },
+    "association": {
+      "title": "For associations",
+      "description": "The N'GO squad analyses your brief. Expect follow-up questions or qualified profiles in your inbox."
+    },
+    "reminder": "Keep an eye on your mailbox (and spam) so you don't miss our confirmation email.",
     "cta": "Back to home"
   },
   "notifications": {
