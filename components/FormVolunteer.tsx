@@ -320,11 +320,11 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
     defaultValues,
   });
 
-  const selectedLanguages = form.watch("languages");
-  const selectedSkills = form.watch("skills");
-  const selectedCauses = form.watch("causes");
-  const selectedPreferredCountries = form.watch("preferredCountries");
-  const selectedCountry = form.watch("country");
+  const selectedLanguages = form.watch("languages") ?? [];
+  const selectedSkills = form.watch("skills") ?? [];
+  const selectedCauses = form.watch("causes") ?? [];
+  const selectedPreferredCountries = form.watch("preferredCountries") ?? [];
+  const selectedCountry = form.watch("country") ?? "";
   const emailValue = form.watch("email") ?? "";
   const [emailLocalPart = "", emailDomainPart = ""] = emailValue.split("@", 2);
   const showSkillOther =
