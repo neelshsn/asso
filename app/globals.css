@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-orange: #ff4d95;
-  --color-salmon: #ffb347;
-  --color-turquoise: #38d7ff;
-  --color-beige: #fff4df;
-  --color-ink: #1b0f42;
+  --color-orange: #ff8a3d;
+  --color-salmon: #ffd85c;
+  --color-turquoise: #1fb7ff;
+  --color-beige: #eef4ff;
+  --color-ink: #071327;
   --radius-xl: 1.25rem;
 }
 
@@ -18,8 +18,9 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--color-beige);
+  background-color: var(--color-beige);
   color: var(--color-ink);
+  padding: clamp(1rem, 2vw, 2.25rem);
   font-family:
     var(--font-satoshi),
     system-ui,
@@ -28,26 +29,153 @@ body {
     "Segoe UI",
     sans-serif;
   background-image:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(255, 77, 149, 0.2),
-      transparent 50%
+    linear-gradient(
+      130deg,
+      rgba(31, 183, 255, 0.15),
+      transparent 60%
     ),
-    radial-gradient(
-      circle at 80% 0%,
-      rgba(56, 215, 255, 0.18),
+    linear-gradient(
+      320deg,
+      rgba(255, 138, 61, 0.12),
       transparent 45%
-    ),
-    radial-gradient(
-      circle at 60% 90%,
-      rgba(255, 179, 71, 0.18),
-      transparent 55%
     );
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(255, 77, 149, 0.25);
+  background: rgba(31, 183, 255, 0.3);
   color: var(--color-ink);
+}
+
+.global-gradient {
+  position: fixed;
+  inset: -25% -15% -20% -15%;
+  z-index: 0;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(31, 183, 255, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(255, 138, 61, 0.35),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 60% 85%,
+      rgba(255, 216, 92, 0.35),
+      transparent 55%
+    );
+  filter: blur(60px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.global-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 10% 25% 15% 15%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(7, 19, 39, 0.4),
+    transparent 65%
+  );
+  filter: blur(40px);
+  opacity: 0.5;
+}
+
+.site-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: clamp(1.25rem, 2.5vw, 3rem);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(238, 244, 255, 0.9)
+    )
+    border-box;
+  box-shadow:
+    0 35px 120px -40px rgba(7, 19, 39, 0.35),
+    0 25px 70px -30px rgba(31, 183, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px);
+}
+
+.site-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    rgba(31, 183, 255, 0.35),
+    rgba(255, 138, 61, 0.35)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.page-surface {
+  position: relative;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(238, 244, 255, 0.93)
+    )
+    border-box;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 36px;
+  box-shadow:
+    0 30px 80px -40px rgba(7, 19, 39, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  padding: clamp(1rem, 2vw, 2rem);
+}
+
+.page-surface::before {
+  content: "";
+  position: absolute;
+  inset: 12% 10% auto 10%;
+  height: 30%;
+  background: radial-gradient(
+    circle,
+    rgba(31, 183, 255, 0.25),
+    transparent 65%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.bg-cream {
+  background: linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(238, 244, 255, 0.9)
+    )
+    !important;
+  box-shadow:
+    0 25px 80px -50px rgba(7, 19, 39, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+[class*="bg-cream/"] {
+  background-image: linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(238, 244, 255, 0.8)
+    )
+    !important;
+  box-shadow:
+    0 12px 50px -30px rgba(7, 19, 39, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .hide-scrollbar {
@@ -60,7 +188,7 @@ body {
 }
 
 .focus-outline {
-  outline: 3px solid rgba(255, 79, 15, 0.35);
+  outline: 3px solid rgba(31, 183, 255, 0.4);
   outline-offset: 2px;
 }
 
@@ -72,57 +200,57 @@ body {
 
 @layer base {
   :root {
-    --background: 32 100% 95%;
-    --foreground: 255 30% 14%;
+    --background: 215 65% 96%;
+    --foreground: 230 40% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 255 30% 14%;
+    --card-foreground: 230 40% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 255 30% 14%;
-    --primary: 332 100% 64%;
+    --popover-foreground: 230 40% 12%;
+    --primary: 24 100% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 43 100% 72%;
-    --secondary-foreground: 255 30% 14%;
-    --muted: 191 82% 90%;
-    --muted-foreground: 197 46% 33%;
-    --accent: 190 100% 56%;
-    --accent-foreground: 204 100% 18%;
-    --destructive: 2 84% 60%;
+    --secondary: 190 90% 55%;
+    --secondary-foreground: 230 40% 12%;
+    --muted: 210 45% 90%;
+    --muted-foreground: 215 32% 35%;
+    --accent: 266 85% 70%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 2 74% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 32 60% 85%;
-    --input: 32 60% 85%;
-    --ring: 332 100% 64%;
-    --chart-1: 332 100% 64%;
-    --chart-2: 43 100% 72%;
-    --chart-3: 190 100% 56%;
-    --chart-4: 266 100% 74%;
-    --chart-5: 160 70% 45%;
+    --border: 218 45% 88%;
+    --input: 218 45% 88%;
+    --ring: 24 100% 60%;
+    --chart-1: 24 100% 60%;
+    --chart-2: 190 90% 55%;
+    --chart-3: 266 85% 70%;
+    --chart-4: 160 65% 45%;
+    --chart-5: 50 100% 65%;
     --radius: 0.75rem;
   }
   .dark {
-    --background: 260 28% 9%;
+    --background: 230 40% 8%;
     --foreground: 0 0% 98%;
-    --card: 255 28% 13%;
+    --card: 230 35% 12%;
     --card-foreground: 0 0% 98%;
-    --popover: 255 28% 13%;
+    --popover: 230 35% 12%;
     --popover-foreground: 0 0% 98%;
-    --primary: 332 100% 64%;
+    --primary: 24 100% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 43 100% 65%;
-    --secondary-foreground: 260 28% 9%;
-    --muted: 250 18% 20%;
-    --muted-foreground: 250 15% 70%;
-    --accent: 190 100% 56%;
+    --secondary: 190 90% 60%;
+    --secondary-foreground: 230 40% 8%;
+    --muted: 225 25% 20%;
+    --muted-foreground: 225 12% 70%;
+    --accent: 266 85% 70%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 2 78% 56%;
+    --destructive: 2 70% 52%;
     --destructive-foreground: 0 0% 98%;
-    --border: 255 20% 28%;
-    --input: 255 20% 28%;
-    --ring: 332 100% 64%;
-    --chart-1: 332 100% 64%;
-    --chart-2: 43 100% 72%;
-    --chart-3: 190 100% 56%;
-    --chart-4: 266 100% 74%;
-    --chart-5: 160 70% 45%;
+    --border: 230 25% 25%;
+    --input: 230 25% 25%;
+    --ring: 24 100% 60%;
+    --chart-1: 24 100% 60%;
+    --chart-2: 190 90% 55%;
+    --chart-3: 266 85% 70%;
+    --chart-4: 160 65% 45%;
+    --chart-5: 50 100% 65%;
   }
 }
 
