@@ -35,13 +35,10 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
       suppressHydrationWarning
       className={`${satoshi.variable} ${pally.variable}`}
     >
-      <body className="text-ink antialiased">
-        <div className="global-gradient" aria-hidden />
+      <body className="bg-cream text-ink antialiased">
         <NextIntlClientProvider locale={safeLocale} messages={messages}>
-          <div className="site-shell flex min-h-screen flex-col gap-6">
-            <main className="page-surface flex-1 pb-28 md:pb-0">
-              {children}
-            </main>
+          <div className="flex min-h-screen flex-col">
+            <main className="bg-cream flex-1 pb-28 md:pb-0">{children}</main>
             <SiteFooter />
           </div>
           <MobileDock />

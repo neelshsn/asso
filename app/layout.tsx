@@ -23,10 +23,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${satoshi.variable} ${pally.variable}`}
     >
-      <body className="text-ink antialiased">
-        <div className="global-gradient" aria-hidden />
-        <div className="site-shell">{children}</div>
-      </body>
+      <body className="bg-cream text-ink antialiased">{children}</body>
     </html>
   );
 }
