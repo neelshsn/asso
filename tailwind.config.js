@@ -61,7 +61,7 @@ module.exports = {
         display: ["var(--font-pally)", "var(--font-satoshi)", "sans-serif"],
       },
       boxShadow: {
-        card: "0 25px 80px -30px rgba(247, 44, 91, 0.25)",
+        card: "0 25px 80px -30px rgba(237, 71, 143, 0.3)",
       },
       borderRadius: {
         xl: "1.25rem",
