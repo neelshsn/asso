@@ -293,8 +293,18 @@
       "title": "Côté associations",
       "description": "Votre brief est analysé par l'équipe N'GO. Nous revenons vers vous avec des questions ou des profils qualifiés."
     },
+    "credentials": {
+      "title": "Identifiants prêts",
+      "description": {
+        "volunteer": "Notez ces accès pour rejoindre votre espace volontaire.",
+        "association": "Notez ces accès pour rejoindre votre cockpit association."
+      },
+      "loginLabel": "Identifiant",
+      "passwordLabel": "Mot de passe temporaire",
+      "hint": "Conservez-les précieusement : ils disparaissent dès que vous quittez cette page."
+    },
     "reminder": "Pensez à vérifier votre boîte mail (et les spams) : nous confirmons chaque étape par message.",
-    "cta": "Retour à l’accueil"
+    "cta": "Retour à l'accueil"
   },
   "notifications": {
     "volunteerSaved": "Profil volontaire enregistré. Un email de confirmation vient de partir.",
@@ -303,6 +313,25 @@
     "matchNotified": "Propositions en attente renvoyées.",
     "matchAccepted": "Choix enregistré, merci !",
     "error": "Un problème est survenu. Réessayez."
+  },
+  "dashboards": {
+    "common": {
+      "eyebrow": "Cockpit dédié",
+      "subtitle": "Nous finalisons cette vue pour que vos données y soient bien gardées.",
+      "cta": "Retour à l'accueil"
+    },
+    "volunteer": {
+      "title": "Tableau volontaire bientôt disponible",
+      "description": "Vous y suivrez vos matchs, vos étapes d'onboarding et les échanges avec l'équipe N'GO."
+    },
+    "association": {
+      "title": "Tableau association bientôt disponible",
+      "description": "Bientôt, briefs, pipeline de talents et suivi des missions seront réunis dans cette vue."
+    },
+    "admin": {
+      "title": "Tableau admin bientôt disponible",
+      "description": "Nous bâtissons une salle de contrôle pour superviser les deux parcours et relancer les matchs."
+    }
   },
   "lang": {
     "en": "English",

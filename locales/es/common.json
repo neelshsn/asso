@@ -293,6 +293,16 @@
       "title": "Lado asociaciones",
       "description": "El equipo N'GO analiza tu brief. Espera preguntas o perfiles cualificados directamente en tu bandeja."
     },
+    "credentials": {
+      "title": "Accesos listos",
+      "description": {
+        "volunteer": "Guarda estos datos para entrar en tu espacio de voluntario.",
+        "association": "Guarda estos datos para entrar en tu panel de asociación."
+      },
+      "loginLabel": "Usuario",
+      "passwordLabel": "Contraseña temporal",
+      "hint": "Ponlos en un lugar seguro: desaparecerán al salir de esta página."
+    },
     "reminder": "No olvides revisar tu correo (y spam) para no perder nuestro mensaje.",
     "cta": "Volver al inicio"
   },
@@ -303,6 +313,25 @@
     "matchNotified": "Propuestas pendientes reenviadas.",
     "matchAccepted": "Elección registrada, ¡gracias!",
     "error": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "dashboards": {
+    "common": {
+      "eyebrow": "Cabina dedicada",
+      "subtitle": "Estamos puliendo este espacio para que tus datos estén seguros.",
+      "cta": "Volver al inicio"
+    },
+    "volunteer": {
+      "title": "Panel voluntario muy pronto",
+      "description": "Aquí seguirás tus matches, tus hitos de onboarding y los intercambios con el equipo N'GO."
+    },
+    "association": {
+      "title": "Panel asociación muy pronto",
+      "description": "Estamos preparando una vista para tus briefs, pipelines de talento y seguimiento de misiones."
+    },
+    "admin": {
+      "title": "Panel admin muy pronto",
+      "description": "Construimos una sala de control para supervisar ambos recorridos y relanzar matches en tiempo real."
+    }
   },
   "lang": {
     "en": "English",

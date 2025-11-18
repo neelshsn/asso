@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import { persistCredentials } from "@/lib/credential-storage";
 import { causeCatalogMap, type CauseId } from "@/lib/cause-catalog";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -103,6 +104,12 @@ type CategoryDefinition = {
 };
 
 type CategoryAnswers = Record<string, string | string[]>;
+type CredentialResponse = {
+  credentials?: {
+    login?: string;
+    password?: string;
+  };
+};
 
 type WizardStep =
   | {
@@ -637,6 +644,15 @@ export function FormAssociation({ googleFormUrl }: { googleFormUrl?: string }) {
           body: JSON.stringify(payload),
         });
         if (!response.ok) throw new Error("Request failed");
+        const data = (await response
+          .json()
+          .catch(() => null)) as CredentialResponse | null;
+        const credentials = data?.credentials;
+        persistCredentials({
+          type: "association",
+          login: credentials?.login ?? payload.email,
+          password: credentials?.password,
+        });
         toast.success(t("association.success"));
         router.push("/success");
         form.reset({

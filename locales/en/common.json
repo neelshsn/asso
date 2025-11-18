@@ -293,6 +293,16 @@
       "title": "For associations",
       "description": "The N'GO squad analyses your brief. Expect follow-up questions or qualified profiles in your inbox."
     },
+    "credentials": {
+      "title": "Credentials ready",
+      "description": {
+        "volunteer": "Use these details to log in to your volunteer space.",
+        "association": "Use these details to log in to your association cockpit."
+      },
+      "loginLabel": "Login",
+      "passwordLabel": "Temporary password",
+      "hint": "Store these securely - they disappear once you leave this page."
+    },
     "reminder": "Keep an eye on your mailbox (and spam) so you don't miss our confirmation email.",
     "cta": "Back to home"
   },
@@ -303,6 +313,25 @@
     "matchNotified": "Pending proposals re-sent.",
     "matchAccepted": "Choice recorded, merci !",
     "error": "Something went wrong. Please try again."
+  },
+  "dashboards": {
+    "common": {
+      "eyebrow": "Dedicated cockpit",
+      "subtitle": "We're polishing this space so your data feels at home.",
+      "cta": "Back to home"
+    },
+    "volunteer": {
+      "title": "Volunteer dashboard coming soon",
+      "description": "Soon you'll review matches, onboarding milestones, and direct support threads from a single place."
+    },
+    "association": {
+      "title": "Association dashboard coming soon",
+      "description": "We're preparing a mission cockpit to track briefs, candidate pipelines, and handoffs with the N'GO crew."
+    },
+    "admin": {
+      "title": "Admin dashboard coming soon",
+      "description": "We're carving a control room to supervise both sides, trigger matches, and monitor operations in real time."
+    }
   },
   "lang": {
     "en": "English",

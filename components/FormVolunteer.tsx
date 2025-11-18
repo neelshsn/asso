@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import { persistCredentials } from "@/lib/credential-storage";
 import Image from "next/image";
 import { causeOptions } from "@/lib/cause-catalog";
 import {
@@ -80,6 +81,12 @@ const formSchema = z
 type FormValues = z.input<typeof formSchema>;
 type FieldName = keyof FormValues;
 type MultiValueField = "languages" | "skills" | "causes" | "preferredCountries";
+type CredentialResponse = {
+  credentials?: {
+    login?: string;
+    password?: string;
+  };
+};
 
 const availabilityOptions = [
   { value: "FULLTIME", label: "Full time" },
@@ -384,6 +391,15 @@ export function FormVolunteer({ googleFormUrl }: { googleFormUrl?: string }) {
           body: JSON.stringify(payload),
         });
         if (!response.ok) throw new Error("Request failed");
+        const data = (await response
+          .json()
+          .catch(() => null)) as CredentialResponse | null;
+        const credentials = data?.credentials;
+        persistCredentials({
+          type: "volunteer",
+          login: credentials?.login ?? payload.email,
+          password: credentials?.password,
+        });
         toast.success(t("volunteer.success"));
         router.push("/success");
         form.reset(defaultValues);

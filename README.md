@@ -42,7 +42,7 @@ Visit `http://localhost:3000/en` (or `/fr`, `/es`). The operations dashboard is 
 
 ## Environment
 
-`.env.local` controls SMTP, Google Form fallbacks, and the database connection:
+`.env.local` controls SMTP, Google Form fallbacks, Supabase, and the database/admin credentials:
 
 ```
 DATABASE_URL="postgresql://user:password@host:5432/dbname"
@@ -55,9 +55,39 @@ PLATFORM_CC="match@ngo.local"
 SITE_URL=http://localhost:3000
 GOOGLE_FORM_VOLUNTEER=
 GOOGLE_FORM_ASSOC=
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+SUPABASE_JWT_SECRET=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_HOST=
+POSTGRES_DATABASE=
+POSTGRES_URL=
+POSTGRES_URL_NON_POOLING=
+POSTGRES_PRISMA_URL=
+DIRECT_DATABASE_URL=
+SHADOW_DATABASE_URL=
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
 ```
 
 Without SMTP creds the Nodemailer transport falls back to Ethereal and logs preview URLs.
+
+After setting `ADMIN_EMAIL` / `ADMIN_PASSWORD`, run `pnpm admin:create` once so Prisma stores the admin user (hashing uses the shared bcrypt helper).
+
+> Prisma CLI now picks up its schema + seed command from `prisma.config.ts`, so you no longer need the deprecated `package.json#prisma` block.
+> `DIRECT_DATABASE_URL` should point to the non-pooled Supabase port (`5432`).  
+> `SHADOW_DATABASE_URL` must be distinct from `DATABASE_URL` (append `?schema=shadow`), otherwise Prisma refuses to run migrations.
+
+## Deployment (Vercel + Supabase)
+
+1. In the Vercel dashboard (or via `vercel env`), add every variable shown in `.env.example` — especially the Supabase URLs/keys and the `ADMIN_*` pair so serverless functions share the same Postgres cluster.
+2. Pull them locally when needed with `vercel env pull .env.production`, then point `DATABASE_URL` at the Supabase pooler (already provided).
+3. After deploying, run `pnpm prisma migrate deploy && pnpm admin:create` against the live database (locally with the production `DATABASE_URL` loaded) to ensure the schema and admin user exist.
+4. Volunteer/association forms already return a `credentials` object; the success page surfaces these login/password pairs instantly after each submission so both Vercel and local builds behave the same.
 
 ## Testing + linting
 

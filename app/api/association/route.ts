@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/db";
 import { sendConfirmationEmail } from "@/lib/mailer";
 import { Modality, Role } from "@/lib/enums";
+import { generateTempPassword, hashPassword } from "@/lib/auth";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -27,11 +28,14 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const payload = schema.parse(body);
+    const tempPassword = generateTempPassword();
+    const passwordHash = await hashPassword(tempPassword);
 
     const user = await prisma.user.create({
       data: {
         role: Role.ASSOCIATION,
         email: payload.email,
+        passwordHash,
         languages: [],
         association: {
           create: {
@@ -63,7 +67,13 @@ export async function POST(request: Request) {
 
     await sendConfirmationEmail({ to: user.email, type: "association" });
 
-    return NextResponse.json({ ok: true }, { status: 201 });
+    return NextResponse.json(
+      {
+        ok: true,
+        credentials: { login: user.email, password: tempPassword },
+      },
+      { status: 201 },
+    );
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });

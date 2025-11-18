@@ -41,9 +41,24 @@ export function LoginForm() {
   const onSubmit = (values: LoginValues) => {
     startTransition(async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 750));
+        const response = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+        const result = (await response.json().catch(() => null)) as
+          | { redirect: string; role: string }
+          | { error?: string }
+          | null;
+        if (!response.ok || !result || "error" in result) {
+          throw new Error(result?.error ?? "Request failed");
+        }
+        const data = result as {
+          redirect: string;
+          role: string;
+        };
         toast.success(t("login.success"));
-        router.push("/dashboard");
+        router.push(data.redirect);
         form.reset({
           email: values.email,
           password: "",

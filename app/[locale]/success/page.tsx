@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/lib/navigation";
+import { SuccessCredentials } from "@/components/SuccessCredentials";
 
 export default async function SuccessPage() {
   const t = await getTranslations("success");
@@ -40,6 +41,7 @@ export default async function SuccessPage() {
             </article>
           ))}
         </div>
+        <SuccessCredentials />
         <p className="text-ink/60 text-sm">{t("reminder")}</p>
         <div>
           <Button
