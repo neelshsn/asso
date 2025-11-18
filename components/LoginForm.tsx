@@ -50,8 +50,17 @@ export function LoginForm() {
           | { redirect: string; role: string }
           | { error?: string }
           | null;
-        if (!response.ok || !result || "error" in result) {
-          throw new Error(result?.error ?? "Request failed");
+        const hasError =
+          result !== null &&
+          typeof result === "object" &&
+          "error" in result &&
+          typeof result.error !== "undefined";
+        if (!response.ok || !result || hasError) {
+          const message =
+            hasError && result && "error" in result && result.error
+              ? result.error
+              : "Request failed";
+          throw new Error(message);
         }
         const data = result as {
           redirect: string;
