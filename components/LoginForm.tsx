@@ -87,7 +87,7 @@ export function LoginForm() {
         aria-hidden
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(237,71,143,0.35), transparent 55%), radial-gradient(circle at 80% 0%, rgba(137,172,70,0.35), transparent 45%)",
+            "radial-gradient(circle at 20% 20%, rgba(237,71,143,0.35), transparent 55%), radial-gradient(circle at 80% 0%, rgba(44,211,225,0.35), transparent 45%)",
         }}
       />
       <div className="relative z-10 w-full max-w-md rounded-[36px] border border-white/60 bg-white/90 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur">
