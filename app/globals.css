@@ -6,7 +6,7 @@
   --color-orange: #ed478f;
   --color-salmon: #ff9bc8;
   --color-turquoise: #2cd3e1;
-  --color-beige: #e9fbff;
+  --color-beige: #2cd3e1;
   --color-ink: #041204;
   --radius-xl: 1.25rem;
 }
@@ -29,19 +29,19 @@ body {
     sans-serif;
   background-image:
     radial-gradient(
-      circle at 15% 20%,
-      rgba(237, 71, 143, 0.3),
-      transparent 50%
+      circle at 12% 18%,
+      rgba(237, 71, 143, 0.35),
+      transparent 55%
     ),
     radial-gradient(
-      circle at 80% 0%,
-      rgba(44, 211, 225, 0.25),
-      transparent 45%
+      circle at 78% 0%,
+      rgba(44, 211, 225, 0.45),
+      transparent 48%
     ),
     radial-gradient(
       circle at 60% 90%,
-      rgba(44, 211, 225, 0.2),
-      transparent 60%
+      rgba(237, 71, 143, 0.25),
+      transparent 65%
     );
 }
 
@@ -72,7 +72,7 @@ body {
 
 @layer base {
   :root {
-    --background: 186 64% 95%;
+    --background: 185 72% 55%;
     --foreground: 200 8% 6%;
     --card: 0 0% 100%;
     --card-foreground: 120 5% 5%;
